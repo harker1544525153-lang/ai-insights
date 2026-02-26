@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>每日AI行业洞察·十大精选</title>
     <style>
-        /* 样式代码与之前相同 */
         :root {
             --primary-color: #6366f1;
             --secondary-color: #8b5cf6;
@@ -213,7 +212,7 @@
 <body>
     <div class="container">
         <header>
-            <h1>每日AI行业洞察·十大精选 · 2026-02-27</h1>
+            <h1>每日AI行业洞察·十大精选 · 2026年2月27日</h1>
             <div class="refresh-btn-container">
                 <button id="refreshBtn" class="refresh-btn">
                     <svg class="refresh-icon" viewBox="0 0 24 24" fill="currentColor">
@@ -235,7 +234,7 @@
         </div>
 
         <footer>
-            <p>最近更新：2026-02-27 01:58</p>
+            <p>最近更新：2026-02-27 18:00</p>
         </footer>
     </div>
 
@@ -243,7 +242,88 @@
 
     <script>
         // 新闻数据
-        const newsData = [{"id": 1, "title": "\u793a\u4f8b\u8d44\u8baf1", "content": "\u8fd9\u662f\u793a\u4f8b\u8d44\u8baf\u5185\u5bb91", "source": "\u793a\u4f8b\u6765\u6e90", "time": "2026-02-27 01:58", "link": "https://example.com/news1"}];
+        const newsData = [
+            {
+                id: 1,
+                title: "智谱GLM-5正式发布，国产开源模型跻身全球T1阵营",
+                content: "2026年2月12日，智谱AI正式发布并开源新一代旗舰基座模型GLM-5。参数规模达744B（40B激活），编程能力在SWE-bench-Verified基准测试中获得77.8分。首次引入稀疏注意力机制，支持200K上下文窗口，全栈适配华为昇腾等国产芯片，GitHub星标破20万，企业AI开发成本下降90%。",
+                source: "智谱AI",
+                time: "2026-02-27 10:00",
+                link: "https://example.com/news1"
+            },
+            {
+                id: 2,
+                title: "DeepSeek V4 Lite测试版曝光，支持1M上下文窗口",
+                content: "DeepSeek V4 Lite代号'sealion-lite'正在积极测试，支持1M上下文窗口和原生多模态推理，非思考模式已超越V3.2。已向华为等国内芯片厂商提供V4提前访问权，推理成本仅为GPT-4的1/18，市场正准备迎接'DeepSeek时刻'。",
+                source: "DeepSeek",
+                time: "2026-02-27 11:30",
+                link: "https://example.com/news2"
+            },
+            {
+                id: 3,
+                title: "OpenAI指控DeepSeek采用'蒸馏'技术",
+                content: "OpenAI向美国国会众议院提交内部备忘录，指出DeepSeek采用'蒸馏'技术从美国前沿模型中抽取智能。引发中美AI技术竞争新争议，时间节点为2026年2月。",
+                source: "OpenAI",
+                time: "2026-02-27 12:00",
+                link: "https://example.com/news3"
+            },
+            {
+                id: 4,
+                title: "A股AI算力板块关注度提升",
+                content: "MSCI季度调整生效，有被动资金进场，AI算力、硬件板块关注度提升。沪指在4130-4170点区间震荡，北向资金预计净流入30-50亿元，两市成交额维持2.4-2.6万亿元。",
+                source: "东方财富网",
+                time: "2026-02-27 13:15",
+                link: "https://example.com/news4"
+            },
+            {
+                id: 5,
+                title: "IDC预测2026年中国生成式AI搜索市场规模突破480亿元",
+                content: "IDC最新数据显示，2026年中国生成式AI搜索市场规模将突破480亿元，年增长率高达68%。头部10%的GEO服务商贡献了全行业60%的显著优化案例，90%以上大型企业已部署专属AI大模型。",
+                source: "IDC",
+                time: "2026-02-27 14:00",
+                link: "https://example.com/news5"
+            },
+            {
+                id: 6,
+                title: "Gartner强调智能体将作为新型生产力单元",
+                content: "Gartner《2026年十大战略技术趋势》报告强调，智能体将作为新型生产力单元重塑工作模式，其规模化、可管理性是企业成功的关键。GLM-5在编程、智能体规划、长文本处理等核心场景实现全球开源SOTA水平。",
+                source: "Gartner",
+                time: "2026-02-27 14:30",
+                link: "https://example.com/news6"
+            },
+            {
+                id: 7,
+                title: "存储芯片涨价潮来袭",
+                content: "SK海力士称库存仅够维持4周，2026年存储芯片价格或持续上涨。中国长江存储等企业加速突围，存储芯片价格上涨将影响AI算力成本，产业链面临新一轮价格调整。",
+                source: "行业资讯",
+                time: "2026-02-27 15:00",
+                link: "https://example.com/news7"
+            },
+            {
+                id: 8,
+                title: "用友网络AI业务成为增长新引擎",
+                content: "用友网络持续推进AI技术应用与推广，AI至上、产品第一、交付革新。随着BIP产品竞争力持续显现、AI业务加速落地、海外业务积极拓展，AI成为用友业务复苏和增长的新动力。",
+                source: "用友网络",
+                time: "2026-02-27 15:30",
+                link: "https://example.com/news8"
+            },
+            {
+                id: 9,
+                title: "AI编程从'感觉流'转向'工程智能'",
+                content: "智谱AI推出的GLM-5模型标志着我们正式进入'工程智能'时代，AI开始具备独立规划、实施和迭代的完整工程能力。GLM-5能够自主进行项目规划，分解复杂任务，并在整个开发过程中持续优化和调整策略。",
+                source: "智谱AI",
+                time: "2026-02-27 16:00",
+                link: "https://example.com/news9"
+            },
+            {
+                id: 10,
+                title: "2026年全球人工智能新局：企业如何把握增长机遇",
+                content: "IDC数据显示，2026年全球智能算力规模将达到2022年的8-10倍，90%以上大型企业已部署专属AI大模型。技术落地效率与商业价值转化成为关键，AI产业进入关键分水岭。",
+                source: "IDC",
+                time: "2026-02-27 16:30",
+                link: "https://example.com/news10"
+            }
+        ];
 
         // 渲染新闻卡片
         function renderNews(news) {
