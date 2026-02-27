@@ -99,7 +99,7 @@ def fetch_news():
     return news_data
 
 def generate_html(news):
-    """生成HTML文件，将更新状态文本显示在更新按钮旁"""
+    """生成HTML文件，包含所有修改"""
     current_date = datetime.now().strftime("%Y-%m-%d")
     current_time = datetime.now().strftime("%Y-%m-%d %H:%M")
     
@@ -295,8 +295,9 @@ def generate_html(news):
             background-color: var(--card-background);
             border-radius: 1rem;
             padding: 1.5rem;
-            margin-bottom: 2rem;
+            margin: 2rem auto;
             border: 1px solid var(--border-color);
+            max-width: 800px;
         }}
 
         .admin-panel-header {{
@@ -304,12 +305,14 @@ def generate_html(news):
             justify-content: space-between;
             align-items: center;
             margin-bottom: 1.5rem;
+            text-align: center;
         }}
 
         .admin-panel-title {{
             font-size: 1.25rem;
             font-weight: 600;
             color: var(--text-primary);
+            text-align: center;
         }}
 
         .logout-btn {{
@@ -331,6 +334,7 @@ def generate_html(news):
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 1rem;
+            text-align: left;
         }}
 
         .control-group {{
@@ -358,6 +362,7 @@ def generate_html(news):
         .update-section {{
             display: flex;
             align-items: center;
+            justify-content: center;
             gap: 1rem;
             margin-top: 1rem;
         }}
@@ -377,6 +382,11 @@ def generate_html(news):
         .update-btn:hover {{
             transform: translateY(-2px);
             box-shadow: 0 10px 25px -5px rgba(16, 185, 129, 0.4);
+        }}
+
+        .update-btn:disabled {{
+            opacity: 0.6;
+            cursor: not-allowed;
         }}
 
         .update-status {{
@@ -520,7 +530,7 @@ def generate_html(news):
         .toast {{
             position: fixed;
             top: 20px;
-            right: 20px;
+            right: 0px;
             background-color: var(--success-color);
             color: white;
             padding: 1rem 1.5rem;
@@ -532,7 +542,7 @@ def generate_html(news):
         }}
 
         .toast.show {{
-            transform: translateX(0);
+            transform: translateX(-20%);
         }}
 
         .toast.error {{
@@ -548,6 +558,7 @@ def generate_html(news):
             font-weight: 600;
             margin-bottom: 1rem;
             color: var(--text-primary);
+            text-align: center;
         }}
 
         .data-sources-list {{
@@ -761,6 +772,32 @@ def generate_html(news):
         const closeAddSourceModal = document.getElementById('closeAddSourceModal');
         const addSourceForm = document.getElementById('addSourceForm');
 
+        // 检查登录状态
+        function checkLoginStatus() {{
+            const isLoggedIn = localStorage.getItem('adminLoggedIn');
+            if (isLoggedIn === 'true') {{
+                adminPanel.style.display = 'block';
+                adminLoginBtn.style.display = 'none';
+                renderDataSources();
+            }}
+        }}
+
+        // 更新上次更新时间
+        function updateLastUpdateTime() {{
+            const lastUpdateTime = localStorage.getItem('lastUpdateTime');
+            if (lastUpdateTime) {{
+                const updateTime = new Date(lastUpdateTime);
+                const updateTimeStr = updateTime.toLocaleString('zh-CN', {{
+                    year: 'numeric',
+                    month: '2-digit',
+                    day: '2-digit',
+                    hour: '2-digit',
+                    minute: '2-digit'
+                }});
+                document.getElementById('updateStatus').textContent = '上次更新：' + updateTimeStr;
+            }}
+        }}
+
         // 打开登录模态框
         adminLoginBtn.addEventListener('click', () => {{
             loginModal.style.display = 'block';
@@ -790,6 +827,10 @@ def generate_html(news):
             const password = document.getElementById('password').value;
 
             if (username === 'admin' && password === 'admin') {{
+                // 保存登录状态到 localStorage
+                localStorage.setItem('adminLoggedIn', 'true');
+                localStorage.setItem('loginTime', new Date().toISOString());
+                
                 loginModal.style.display = 'none';
                 adminPanel.style.display = 'block';
                 adminLoginBtn.style.display = 'none';
@@ -806,6 +847,10 @@ def generate_html(news):
 
         // 退出登录
         logoutBtn.addEventListener('click', () => {{
+            // 清除登录状态
+            localStorage.removeItem('adminLoggedIn');
+            localStorage.removeItem('loginTime');
+            
             adminPanel.style.display = 'none';
             adminLoginBtn.style.display = 'block';
             showToast('已退出登录');
@@ -833,7 +878,10 @@ def generate_html(news):
                 updateStatus.classList.remove('updating');
                 updateStatus.classList.add('success');
                 
-                // 重新加载页面以获取新内容
+                // 保存更新时间
+                localStorage.setItem('lastUpdateTime', new Date().toISOString());
+                
+                // 重新加载页面以获取新内容（登录状态会保留）
                 setTimeout(() => {{
                     window.location.reload();
                 }}, 1000);
@@ -987,6 +1035,13 @@ def generate_html(news):
 
         // 初始化页面
         document.addEventListener('DOMContentLoaded', function() {{
+            // 检查登录状态
+            checkLoginStatus();
+            
+            // 更新上次更新时间
+            updateLastUpdateTime();
+            
+            // 渲染新闻
             renderNews(newsData);
 
             // 绑定分享按钮事件
