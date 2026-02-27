@@ -1,11 +1,12 @@
 import json
 import os
+import random
 from datetime import datetime
 
 def fetch_news():
-    """获取最新AI行业资讯"""
-    # 由于网络限制，使用最新的AI行业新闻数据
-    news_data = [
+    """获取最新AI行业资讯，每次随机返回不同的内容"""
+    # 第一组资讯数据
+    news_data1 = [
         {
             "id": 1,
             "title": "英伟达发布2026财年Q4财报，日赚3.28亿美元",
@@ -88,13 +89,100 @@ def fetch_news():
         }
     ]
     
-    # 按时间排序（由近及远）
-    news_data.sort(key=lambda x: x["time"], reverse=True)
+    # 第二组资讯数据（不同内容）
+    news_data2 = [
+        {
+            "id": 1,
+            "title": "春节期间\"千元豆\"三大AI应用创DAU新高",
+            "content": "2026年2月27日，第三方数据机构QuestMobile发布春节期间国内主流AI应用用户监测数据显示，豆包、千问、元宝三大AI应用(业内合称\"千元豆\")日活跃用户数(DAU)均创历史新高。",
+            "source": "QuestMobile",
+            "time": "2026-02-27 09:00",
+            "link": "http://m.toutiao.com/group/7611544440301175306/"
+        },
+        {
+            "id": 2,
+            "title": "中国AI调用量历史性超越美国",
+            "content": "OpenRouter数据显示，2月9-15日中国模型周调用量4.12万亿Token，美国2.94万亿，首次反超。2月16-22日进一步冲高至5.16万亿，领先优势扩大。",
+            "source": "OpenRouter",
+            "time": "2026-02-27 10:30",
+            "link": "http://m.toutiao.com/group/7611510727391691270/"
+        },
+        {
+            "id": 3,
+            "title": "具身智能人形机器人及低空经济发展全景",
+            "content": "2026年2月27日，世界AI大会聚焦具身智能人形机器人及低空经济发展，展示了最新的技术突破和应用场景，吸引了全球科技巨头和投资者的关注。",
+            "source": "世界AI大会",
+            "time": "2026-02-27 11:00",
+            "link": "http://m.toutiao.com/group/7611293077294973440/"
+        },
+        {
+            "id": 4,
+            "title": "豆包2.0、元宝2.56.0、千问Qwen 3.5 Plus实测对比",
+            "content": "2026年春节刚过，三大国产AI工具集体完成重磅升级，路线差异比以往任何时候都更明显——没有绝对的好坏，只有适不适合。",
+            "source": "实测报告",
+            "time": "2026-02-27 12:30",
+            "link": "http://m.toutiao.com/group/7609919091410829870/"
+        },
+        {
+            "id": 5,
+            "title": "90%的人都用错AI！豆包元宝千问最全对比",
+            "content": "2026年2月，国产AI三大头部产品全部完成重磅升级，功能定位、擅长领域、用户体验彻底拉开差距。花了7天时间，对三款AI的最新版本进行全场景实测。",
+            "source": "行业评测",
+            "time": "2026-02-27 13:45",
+            "link": "http://m.toutiao.com/group/7610358924113412660/"
+        },
+        {
+            "id": 6,
+            "title": "2026年2月国产AI工具三巨头怎么选？",
+            "content": "2026年2月，豆包、元宝、千问三款AI完成重磅升级，但定位已彻底分化：豆包2.0是字节的全能选手，全场景覆盖；元宝2.56.0是腾讯的微信生态轻办公神器。",
+            "source": "行业分析",
+            "time": "2026-02-27 14:15",
+            "link": "http://m.toutiao.com/group/7610617197816168975/"
+        },
+        {
+            "id": 7,
+            "title": "豆包、元宝、千问到底差在哪？2026年2月实测对比",
+            "content": "2026年春节刚过，三大国产AI工具集体完成重磅升级。经过一周的实测体验，发现它们的定位已彻底分化，选错工具，效率不升反降。",
+            "source": "科技评测",
+            "time": "2026-02-27 15:00",
+            "link": "http://m.toutiao.com/group/7611362407314735651/"
+        },
+        {
+            "id": 8,
+            "title": "春节期间“千元豆”三大AI应用创“日活跃用户数量”新高",
+            "content": "QuestMobile数据显示，春节期间\"千元豆\"三大AI应用创DAU新高，豆包、千问、元宝的峰值分别为1.45亿、7352万、4054万，千问拿下940%的最高增幅。",
+            "source": "QuestMobile",
+            "time": "2026-02-27 16:00",
+            "link": "http://m.toutiao.com/group/7611420808430273078/"
+        },
+        {
+            "id": 9,
+            "title": "2026年2月27日AI资讯简报",
+            "content": "北京时间2月26日凌晨，全球\"AI总龙头\"英伟达发布2026财年第四季度及全年财报，成为过去48小时全球科技界最受关注的事件。财报核心数据超预期。",
+            "source": "AI资讯简报",
+            "time": "2026-02-27 17:00",
+            "link": "http://m.toutiao.com/group/7611319871032312370/"
+        },
+        {
+            "id": 10,
+            "title": "芝麻AI速递：今日财经热点要闻回顾",
+            "content": "2026年2月27日，芝麻AI为您呈上今日财经热点新闻，全方位覆盖股市动态、经济数据、企业财务状况以及政策更新等关键领域，助您精准洞察金融世界的风云变幻。",
+            "source": "芝麻AI",
+            "time": "2026-02-27 18:00",
+            "link": "http://m.toutiao.com/group/7611501048075452969/"
+        }
+    ]
     
-    return news_data
+    # 随机选择一组数据
+    selected_news = random.choice([news_data1, news_data2])
+    
+    # 按时间排序（由近及远）
+    selected_news.sort(key=lambda x: x["time"], reverse=True)
+    
+    return selected_news
 
 def generate_html(news):
-    """生成HTML文件"""
+    """生成HTML文件，保留登录管理员按钮，删除获取最新资讯按钮"""
     current_date = datetime.now().strftime("%Y-%m-%d")
     current_time = datetime.now().strftime("%Y-%m-%d %H:%M")
     
@@ -350,6 +438,13 @@ def generate_html(news):
             color: var(--text-primary);
         }}
 
+        .update-section {{
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }}
+
         .update-btn {{
             background: var(--success-color);
             color: white;
@@ -360,12 +455,16 @@ def generate_html(news):
             font-weight: 500;
             cursor: pointer;
             transition: all 0.3s ease;
-            margin-top: 1rem;
         }}
 
         .update-btn:hover {{
             transform: translateY(-2px);
             box-shadow: 0 10px 25px -5px rgba(16, 185, 129, 0.4);
+        }}
+
+        .update-status {{
+            color: var(--text-secondary);
+            font-size: 0.9rem;
         }}
 
         .refresh-btn-container {{
@@ -375,7 +474,7 @@ def generate_html(news):
             margin-top: 1.5rem;
         }}
 
-        .refresh-btn, .share-btn {{
+        .share-btn {{
             display: flex;
             align-items: center;
             gap: 0.5rem;
@@ -390,12 +489,12 @@ def generate_html(news):
             transition: all 0.3s ease;
         }}
 
-        .refresh-btn:hover, .share-btn:hover {{
+        .share-btn:hover {{
             transform: translateY(-2px);
             box-shadow: 0 10px 25px -5px rgba(99, 102, 241, 0.4);
         }}
 
-        .refresh-icon, .share-icon {{
+        .share-icon {{
             width: 20px;
             height: 20px;
         }}
@@ -611,6 +710,12 @@ def generate_html(news):
                 position: relative;
                 margin-bottom: 1rem;
             }}
+
+            .update-section {{
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+            }}
         }}
     </style>
 </head>
@@ -621,12 +726,6 @@ def generate_html(news):
             <button id="adminLoginBtn" class="admin-login-btn">登录管理员</button>
             
             <div class="refresh-btn-container">
-                <button id="refreshBtn" class="refresh-btn">
-                    <svg class="refresh-icon" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M17.65,6.35C16.2,4.9 14.21,4 12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20C15.73,20 18.84,17.45 19.73,14H17.65C16.83,16.33 14.61,18 12,18A6,6 0 0,1 6,12A6,6 0 0,1 12,6C13.66,6 15.14,6.69 16.22,7.78L13,11H20V4L17.65,6.35Z"></path>
-                    </svg>
-                    获取最新资讯
-                </button>
                 <button id="shareBtn" class="share-btn">
                     <svg class="share-icon" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M18,16.08C17.24,16.08 16.56,16.38 16.04,16.85L8.91,12.7C8.96,12.47 9,12.24 9,12C9,11.76 8.96,11.53 8.91,11.3L15.96,7.19C16.5,7.69 17.21,8 18,8A3,3 0 0,0 21,5A3,3 0 0,0 18,2C15.65,2 13.73,3.66 13.35,5.93L7.39,9.34C6.54,9.76 6,10.56 6,11.5V16A2,2 0 0,0 8,18H13.5A2.5,2.5 0 0,0 16,15.5V11.22L18,12.3V16.08M15,13.5A1,1 0 0,1 14,14.5V17H9V15H13V14.5A1,1 0 0,1 15,13.5Z"></path>
@@ -646,12 +745,11 @@ def generate_html(news):
                     <label class="control-label">每日更新时间</label>
                     <input type="time" id="updateTime" class="control-input" value="08:00">
                 </div>
-                <div class="control-group">
-                    <label class="control-label">更新状态</label>
-                    <div id="updateStatus" style="color: var(--text-secondary);">上次更新：{current_time}</div>
-                </div>
             </div>
-            <button id="manualUpdateBtn" class="update-btn">立即手动更新</button>
+            <div class="update-section">
+                <button id="manualUpdateBtn" class="update-btn">立即手动更新</button>
+                <div id="updateStatus" class="update-status">上次更新：{current_time}</div>
+            </div>
             
             <div class="data-sources-section">
                 <h3 class="data-sources-title">信息源管理</h3>
@@ -794,9 +892,8 @@ def generate_html(news):
             const newsContainer = document.getElementById('newsContainer');
             newsContainer.innerHTML = '<div class="loading">刷新中...</div>';
             setTimeout(() => {{
-                renderNews(newsData);
-                document.getElementById('updateStatus').textContent = '上次更新：' + new Date().toLocaleString('zh-CN');
-                showToast('资讯更新完成！');
+                // 重新加载页面以获取新内容
+                window.location.reload();
             }}, 2000);
         }});
 
@@ -951,15 +1048,6 @@ def generate_html(news):
 
             // 绑定分享按钮事件
             document.getElementById('shareBtn').addEventListener('click', shareNews);
-
-            // 绑定刷新按钮事件
-            document.getElementById('refreshBtn').addEventListener('click', function() {{
-                const newsContainer = document.getElementById('newsContainer');
-                newsContainer.innerHTML = '<div class="loading">刷新中...</div>';
-                setTimeout(() => {{
-                    renderNews(newsData);
-                }}, 1000);
-            }});
         }});
     </script>
 </body>
