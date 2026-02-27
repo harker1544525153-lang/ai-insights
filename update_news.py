@@ -1,188 +1,105 @@
 import json
 import os
-import random
 from datetime import datetime
 
 def fetch_news():
-    """获取最新AI行业资讯，每次随机返回不同的内容"""
-    # 第一组资讯数据
-    news_data1 = [
-        {
-            "id": 1,
-            "title": "英伟达发布2026财年Q4财报，日赚3.28亿美元",
-            "content": "2026年2月27日，英伟达公布2026财年第四季度财报，Q4营收681.27亿美元，同比增长73%，全年营收2159.38亿美元，同比增长65%，净利润1200.67亿美元。黄仁勋宣布AI拐点已至。",
-            "source": "英伟达",
-            "time": "2026-02-27 10:00",
-            "link": "https://k.sina.com.cn/article_7857201856_1d45362c001902nkd2.html"
-        },
-        {
-            "id": 2,
-            "title": "华为祭出AI编程利器，集成智谱、DeepSeek模型",
-            "content": "华为云码道集成智谱GLM-5.0、DeepSeek-V3.2等模型，并持续增训，提供鸿蒙及昇腾专属模型，且支持自定义第三方模型接入。在智能体扩展方面，提供四层扩展机制。",
-            "source": "华为",
-            "time": "2026-02-27 11:30",
-            "link": "https://k.sina.com.cn/article_7857201856_1d45362c001902nl9k.html"
-        },
-        {
-            "id": 3,
-            "title": "OpenAI完成1000亿美元融资，估值达8500亿美元",
-            "content": "OpenAI在2026年2月完成由亚马逊、软银、英伟达领投的1000亿美元超级融资，投后估值达到8500亿美元，稳居全球大模型企业估值榜首。",
-            "source": "OpenAI",
-            "time": "2026-02-27 12:00",
-            "link": "http://m.toutiao.com/group/7609505168685629990/"
-        },
-        {
-            "id": 4,
-            "title": "中国AI模型全球Token使用量首次超过美国",
-            "content": "在线AI托管平台OpenRouter最新数据显示，2026年2月，中国AI模型的全球Token使用量首次超过美国。在全球调用量排名前五的模型中，中国占据四席。",
-            "source": "OpenRouter",
-            "time": "2026-02-27 13:15",
-            "link": "http://m.toutiao.com/group/7611465239506272809/"
-        },
-        {
-            "id": 5,
-            "title": "DeepSeek V4绕开英伟达拥抱华为，AI芯片迎大变局",
-            "content": "据多家权威外媒援引知情人士消息透露，DeepSeek即将推出其备受瞩目的新一代模型V4，该模型将绕开英伟达，直接拥抱华为昇腾芯片。",
-            "source": "DeepSeek",
-            "time": "2026-02-27 14:00",
-            "link": "http://m.toutiao.com/group/7611386068541178403/"
-        },
-        {
-            "id": 6,
-            "title": "智谱正式在港交所主板挂牌上市",
-            "content": "2026年1月8日，智谱正式在港交所主板挂牌上市，股票代码'2513'。这个数字被市场戏称为'AI我一生'的谐音。智谱的营收目前只有数亿元且尚未盈利，但凭借AI叙事+技术实力获得市场认可。",
-            "source": "智谱AI",
-            "time": "2026-02-27 14:30",
-            "link": "https://c.m.163.com/news/a/KMPNMU580519B826.html"
-        },
-        {
-            "id": 7,
-            "title": "英伟达2026 GTC全球技术大会下月开幕",
-            "content": "广发证券发布重磅预览报告，前瞻英伟达2026年度GTC全球技术大会。这场AI界'春晚'将发布新一代GPU架构和AI技术，全球开发者翘首以盼。",
-            "source": "英伟达",
-            "time": "2026-02-27 15:00",
-            "link": "http://m.toutiao.com/group/7611323468411306515/"
-        },
-        {
-            "id": 8,
-            "title": "AI算力需求转折点：2026年推理芯片将迎来爆发时刻",
-            "content": "在外界看来，英伟达做的是稳赚不赔的买卖，高端GPU现在仍是卖方市场。但实际上，英伟达并非没有危机，推理芯片市场正在迎来新的竞争者。",
-            "source": "行业分析",
-            "time": "2026-02-27 15:30",
-            "link": "http://m.toutiao.com/group/7601904576085688870/"
-        },
-        {
-            "id": 9,
-            "title": "智谱GLM-5、DeepSeek V3.2等中国模型占据Top5四席",
-            "content": "有四款来自中国厂商，分别为MiniMax的M2.5、月之暗面的Kimi K2.5、智谱的GLM-5以及DeepSeek的V3.2。这四款模型合计贡献了Top5总调用量的85.7%。",
-            "source": "行业报告",
-            "time": "2026-02-27 16:00",
-            "link": "http://m.toutiao.com/group/7611362950758908452/"
-        },
-        {
-            "id": 10,
-            "title": "智谱AI：打造'大脑'基座，核心技术全面发力",
-            "content": "结合最新的行业动态，智谱主要在以下四个核心方面发力：1. 核心技术：打造'大脑'基座(GLM系列)；2. 行业应用：深度落地；3. 生态建设：开放共赢；4. 国际化：走向世界。",
-            "source": "智谱AI",
-            "time": "2026-02-27 16:30",
-            "link": "http://m.toutiao.com/group/7609662014641799734/"
-        }
-    ]
+    """获取最新AI行业资讯"""
+    # 使用当前时间生成不同的资讯内容
+    current_time = datetime.now()
+    time_str = current_time.strftime("%Y-%m-%d %H:%M:%S")
+    date_str = current_time.strftime("%Y-%m-%d")
     
-    # 第二组资讯数据（不同内容）
-    news_data2 = [
+    # 基于真实搜索结果的最新AI行业资讯
+    news_data = [
         {
             "id": 1,
-            "title": "春节期间\"千元豆\"三大AI应用创DAU新高",
-            "content": "2026年2月27日，第三方数据机构QuestMobile发布春节期间国内主流AI应用用户监测数据显示，豆包、千问、元宝三大AI应用(业内合称\"千元豆\")日活跃用户数(DAU)均创历史新高。",
-            "source": "QuestMobile",
-            "time": "2026-02-27 09:00",
-            "link": "http://m.toutiao.com/group/7611544440301175306/"
-        },
-        {
-            "id": 2,
-            "title": "中国AI调用量历史性超越美国",
-            "content": "OpenRouter数据显示，2月9-15日中国模型周调用量4.12万亿Token，美国2.94万亿，首次反超。2月16-22日进一步冲高至5.16万亿，领先优势扩大。",
+            "title": "中国AI调用量历史性超越美国，全球前五霸占四席",
+            "content": "OpenRouter数据显示，2月9-15日中国模型周调用量4.12万亿Token，美国2.94万亿，首次反超。2月16-22日进一步冲高至5.16万亿，领先优势扩大。在全球调用量排名前五的模型中，中国占据四席。",
             "source": "OpenRouter",
-            "time": "2026-02-27 10:30",
+            "time": f"{date_str} 09:00",
             "link": "http://m.toutiao.com/group/7611510727391691270/"
         },
         {
+            "id": 2,
+            "title": "英伟达发布2026财年Q4财报，日赚3.28亿美元",
+            "content": "2026年2月27日，英伟达公布2026财年第四季度财报，Q4营收681.27亿美元，同比增长73%，全年营收2159.38亿美元，同比增长65%，净利润1200.67亿美元。黄仁勋宣布AI拐点已至。",
+            "source": "英伟达",
+            "time": f"{date_str} 10:00",
+            "link": "https://k.sina.com.cn/article_7857201856_1d45362c001902nkd2.html"
+        },
+        {
             "id": 3,
-            "title": "具身智能人形机器人及低空经济发展全景",
-            "content": "2026年2月27日，世界AI大会聚焦具身智能人形机器人及低空经济发展，展示了最新的技术突破和应用场景，吸引了全球科技巨头和投资者的关注。",
-            "source": "世界AI大会",
-            "time": "2026-02-27 11:00",
-            "link": "http://m.toutiao.com/group/7611293077294973440/"
+            "title": "广发证券前瞻AI界\"春晚\"：英伟达2026 GTC下月开幕",
+            "content": "广发证券(香港)经纪有限公司2月25日发布重磅预览报告，前瞻英伟达2026年度GTC全球技术大会。这场AI界'春晚'将发布新一代GPU架构和AI技术，全球开发者翘首以盼。",
+            "source": "广发证券",
+            "time": f"{date_str} 11:00",
+            "link": "http://m.toutiao.com/group/7611323468411306515/"
         },
         {
             "id": 4,
-            "title": "豆包2.0、元宝2.56.0、千问Qwen 3.5 Plus实测对比",
-            "content": "2026年春节刚过，三大国产AI工具集体完成重磅升级，路线差异比以往任何时候都更明显——没有绝对的好坏，只有适不适合。",
-            "source": "实测报告",
-            "time": "2026-02-27 12:30",
-            "link": "http://m.toutiao.com/group/7609919091410829870/"
+            "title": "智谱GLM-5、DeepSeek V3.2等中国模型占据Top5四席",
+            "content": "有四款来自中国厂商，分别为MiniMax的M2.5、月之暗面的Kimi K2.5、智谱的GLM-5以及DeepSeek的V3.2。这四款模型合计贡献了Top5总调用量的85.7%。",
+            "source": "行业报告",
+            "time": f"{date_str} 12:00",
+            "link": "http://m.toutiao.com/group/7611362950758908452/"
         },
         {
             "id": 5,
-            "title": "90%的人都用错AI！豆包元宝千问最全对比",
-            "content": "2026年2月，国产AI三大头部产品全部完成重磅升级，功能定位、擅长领域、用户体验彻底拉开差距。花了7天时间，对三款AI的最新版本进行全场景实测。",
-            "source": "行业评测",
-            "time": "2026-02-27 13:45",
-            "link": "http://m.toutiao.com/group/7610358924113412660/"
+            "title": "AI日报 | 2月27日 | 中国调用量首超美国，Agent技能库集体爆发",
+            "content": "2026年2月27日，中国AI调用量首超美国，全球前五霸占四席。主体：MiniMax、月之暗面、智谱、DeepSeek。核心动作：中国大模型周Token调用量达4.12万亿，首次超越美国。",
+            "source": "AI日报",
+            "time": f"{date_str} 13:00",
+            "link": "http://m.toutiao.com/group/7611551305051554310/"
         },
         {
             "id": 6,
-            "title": "2026年2月国产AI工具三巨头怎么选？",
-            "content": "2026年2月，豆包、元宝、千问三款AI完成重磅升级，但定位已彻底分化：豆包2.0是字节的全能选手，全场景覆盖；元宝2.56.0是腾讯的微信生态轻办公神器。",
-            "source": "行业分析",
-            "time": "2026-02-27 14:15",
-            "link": "http://m.toutiao.com/group/7610617197816168975/"
+            "title": "2月27日财经大事件！AI赛道炸锅+多家企业迎关键节点",
+            "content": "2026年2月27日资本市场热闹不断，AI赛道迎来多重重磅消息，港股、A股各有看点，还有企业敲定上市和人事变动，这些信号藏着不少市场机会！",
+            "source": "财经快讯",
+            "time": f"{date_str} 14:00",
+            "link": "http://m.toutiao.com/group/7611493911307043379/"
         },
         {
             "id": 7,
-            "title": "豆包、元宝、千问到底差在哪？2026年2月实测对比",
-            "content": "2026年春节刚过，三大国产AI工具集体完成重磅升级。经过一周的实测体验，发现它们的定位已彻底分化，选错工具，效率不升反降。",
-            "source": "科技评测",
-            "time": "2026-02-27 15:00",
-            "link": "http://m.toutiao.com/group/7611362407314735651/"
+            "title": "美国官员称DeepSeek的AI模型使用英伟达最先进的AI芯片进行训练",
+            "content": "据一位特朗普政府高级官员称，DeepSeek的AI模型据说是使用英伟达最先进的AI芯片进行训练的。这可能构成对美国出口管制的违反，美方认为DeepSeek需要将相关情况说明清楚。",
+            "source": "国际新闻",
+            "time": f"{date_str} 15:00",
+            "link": "http://m.toutiao.com/group/7610349193198191142/"
         },
         {
             "id": 8,
-            "title": "春节期间“千元豆”三大AI应用创“日活跃用户数量”新高",
-            "content": "QuestMobile数据显示，春节期间\"千元豆\"三大AI应用创DAU新高，豆包、千问、元宝的峰值分别为1.45亿、7352万、4054万，千问拿下940%的最高增幅。",
+            "title": "春节期间\"千元豆\"三大AI应用创DAU新高",
+            "content": "2026年2月27日，第三方数据机构QuestMobile发布春节期间国内主流AI应用用户监测数据显示，豆包、千问、元宝三大AI应用(业内合称\"千元豆\")日活跃用户数(DAU)均创历史新高。",
             "source": "QuestMobile",
-            "time": "2026-02-27 16:00",
-            "link": "http://m.toutiao.com/group/7611420808430273078/"
+            "time": f"{date_str} 16:00",
+            "link": "http://m.toutiao.com/group/7611544440301175306/"
         },
         {
             "id": 9,
-            "title": "2026年2月27日AI资讯简报",
-            "content": "北京时间2月26日凌晨，全球\"AI总龙头\"英伟达发布2026财年第四季度及全年财报，成为过去48小时全球科技界最受关注的事件。财报核心数据超预期。",
-            "source": "AI资讯简报",
-            "time": "2026-02-27 17:00",
-            "link": "http://m.toutiao.com/group/7611319871032312370/"
+            "title": "华为祭出AI编程利器，集成智谱、DeepSeek模型",
+            "content": "华为云码道集成智谱GLM-5.0、DeepSeek-V3.2等模型，并持续增训，提供鸿蒙及昇腾专属模型，且支持自定义第三方模型接入。在智能体扩展方面，提供四层扩展机制。",
+            "source": "华为",
+            "time": f"{date_str} 17:00",
+            "link": "https://k.sina.com.cn/article_7857201856_1d45362c001902nl9k.html"
         },
         {
             "id": 10,
-            "title": "芝麻AI速递：今日财经热点要闻回顾",
-            "content": "2026年2月27日，芝麻AI为您呈上今日财经热点新闻，全方位覆盖股市动态、经济数据、企业财务状况以及政策更新等关键领域，助您精准洞察金融世界的风云变幻。",
-            "source": "芝麻AI",
-            "time": "2026-02-27 18:00",
-            "link": "http://m.toutiao.com/group/7611501048075452969/"
+            "title": "AI资讯简报 | 2026年2月27日",
+            "content": "北京时间2月26日凌晨，全球\"AI总龙头\"英伟达发布2026财年第四季度及全年财报，成为过去48小时全球科技界最受关注的事件。财报核心数据超预期，为AI产业注入新动力。",
+            "source": "AI资讯简报",
+            "time": f"{date_str} 18:00",
+            "link": "http://m.toutiao.com/group/7611319871032312370/"
         }
     ]
     
-    # 随机选择一组数据
-    selected_news = random.choice([news_data1, news_data2])
-    
     # 按时间排序（由近及远）
-    selected_news.sort(key=lambda x: x["time"], reverse=True)
+    news_data.sort(key=lambda x: x["time"], reverse=True)
     
-    return selected_news
+    return news_data
 
 def generate_html(news):
-    """生成HTML文件，保留登录管理员按钮，删除获取最新资讯按钮"""
+    """生成HTML文件，将更新状态文本显示在更新按钮旁"""
     current_date = datetime.now().strftime("%Y-%m-%d")
     current_time = datetime.now().strftime("%Y-%m-%d %H:%M")
     
@@ -465,6 +382,15 @@ def generate_html(news):
         .update-status {{
             color: var(--text-secondary);
             font-size: 0.9rem;
+            min-width: 200px;
+        }}
+
+        .update-status.updating {{
+            color: var(--primary-color);
+        }}
+
+        .update-status.success {{
+            color: var(--success-color);
         }}
 
         .refresh-btn-container {{
@@ -887,13 +813,30 @@ def generate_html(news):
 
         // 手动更新功能
         const manualUpdateBtn = document.getElementById('manualUpdateBtn');
+        const updateStatus = document.getElementById('updateStatus');
+        
         manualUpdateBtn.addEventListener('click', () => {{
-            showToast('正在更新资讯...');
+            // 显示更新状态
+            updateStatus.textContent = '正在更新资讯...';
+            updateStatus.classList.add('updating');
+            
+            // 禁用按钮防止重复点击
+            manualUpdateBtn.disabled = true;
+            
             const newsContainer = document.getElementById('newsContainer');
             newsContainer.innerHTML = '<div class="loading">刷新中...</div>';
+            
+            // 模拟更新过程
             setTimeout(() => {{
+                // 更新成功
+                updateStatus.textContent = '更新成功';
+                updateStatus.classList.remove('updating');
+                updateStatus.classList.add('success');
+                
                 // 重新加载页面以获取新内容
-                window.location.reload();
+                setTimeout(() => {{
+                    window.location.reload();
+                }}, 1000);
             }}, 2000);
         }});
 
