@@ -21,21 +21,35 @@
   - 优先级和分类管理
 
 ### 固定输出
-- **网页输出**: `result/index.html`
+- **网页输出**: `index.html`（根目录）
   - 响应式设计，适配多设备
   - 日期选择器，支持历史查看
   - 实时统计信息显示
 
-- **Markdown输出**: `result/latest.md`
+- **Markdown输出**: `latest.md`（根目录）
   - 简化版格式，适合分享
   - 包含标题、摘要、点评、链接
   - 标准化的分享格式
 
-- **数据源统计**: `source/resultAI.xlsx`
+- **数据源统计**: `source/resultAI.csv`
   - 记录各数据源获取情况
   - 获取简讯数量统计
   - 失败原因分析
   - 最新简讯发布时间记录
+
+### 文件结构
+```
+项目根目录/
+├── index.html          # 主网页文件
+├── latest.md           # 最新简讯Markdown
+├── README.md           # 项目说明文档
+├── source/
+│   ├── AI_sources.xlsx # 数据源配置
+│   ├── resultAI.csv    # 数据源统计
+│   └── resultAI.json   # JSON格式统计
+├── result/             # 历史文件存档
+└── .github/workflows/  # GitHub Actions配置
+```
 
 ## 🚀 快速开始
 
