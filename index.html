@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI简讯 - 真实数据源【2026-03-07】</title>
+    <title>AI简讯 - 2026-03-07</title>
     <style>
         * {
             margin: 0;
@@ -50,11 +50,12 @@
             align-items: center;
         }
         
-        .date-selector {
+        .history-selector {
             padding: 8px 12px;
             border: 1px solid #ddd;
             border-radius: 4px;
             font-size: 14px;
+            background: white;
         }
         
         .share-btn {
@@ -70,24 +71,6 @@
         
         .share-btn:hover {
             background: #0056b3;
-        }
-        
-        .header {
-            text-align: center;
-            margin-bottom: 30px;
-            padding-bottom: 15px;
-            border-bottom: 1px solid #e0e0e0;
-        }
-        
-        .header h1 {
-            color: #333;
-            margin-bottom: 10px;
-            font-size: 28px;
-        }
-        
-        .header p {
-            color: #666;
-            font-size: 14px;
         }
         
         /* 今日简讯预览样式 */
@@ -234,6 +217,20 @@
             font-size: 12px;
         }
         
+        .read-more-link {
+            background: #007bff;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-size: 12px;
+            transition: background 0.3s;
+        }
+        
+        .read-more-link:hover {
+            background: #0056b3;
+        }
+        
         .insight-content {
             margin-bottom: 15px;
         }
@@ -251,27 +248,6 @@
             border-radius: 0 8px 8px 0;
             font-style: italic;
             color: #2e7d32;
-        }
-        
-        .insight-footer {
-            display: flex;
-            justify-content: flex-end;
-            margin-top: 10px;
-        }
-        
-        .read-more {
-            background: #007bff;
-            color: white;
-            border: none;
-            padding: 6px 12px;
-            border-radius: 4px;
-            text-decoration: none;
-            font-size: 12px;
-            transition: background 0.3s;
-        }
-        
-        .read-more:hover {
-            background: #0056b3;
         }
         
         .stats-section {
@@ -312,6 +288,12 @@
             .insight-title {
                 min-width: auto;
             }
+            
+            .insight-meta {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 5px;
+            }
         }
     </style>
 </head>
@@ -319,19 +301,14 @@
     <div class="container">
         <!-- 导航栏 -->
         <div class="navbar">
-            <div class="navbar-title">AI简讯</div>
+            <div class="navbar-title">AI简讯 【2026-03-07】</div>
             <div class="navbar-controls">
-                <select class="date-selector" id="dateSelector">
-                    <option value="2026-03-07" selected>2026-03-07</option>
+                <select class="history-selector" id="historySelector">
+                    <option value="2026-03-07" selected>查看历史简讯</option>
+                    <option value="2026-03-07">2026-03-07</option>
                 </select>
                 <button class="share-btn" onclick="shareContent()">分享</button>
             </div>
-        </div>
-        
-        <!-- 页面标题 -->
-        <div class="header">
-            <h1>AI简讯 - 2026-03-07</h1>
-            <p>最新AI行业动态，专业视角解读</p>
         </div>
         
         <!-- 今日简讯预览 -->
@@ -377,15 +354,13 @@
                     <div class="insight-meta">
                         <span class="category-tag">云计算</span>
                         <span class="source-tag">阿里云（微信公众号）</span>
-                        <span class="time-tag">2026-03-07 09:15</span>
+                        <span class="time-tag">2026年3月4日 00:07</span>
+                        <a href="https://mp.weixin.qq.com/s/QfWC_uxAmTlpPu1CW9dJNA" target="_blank" class="read-more-link">阅读原文</a>
                     </div>
                 </div>
                 <div class="insight-content">
                     <div class="insight-summary">阿里云宣布对其AI大模型推理服务进行全面升级，新增多项功能优化。升级内容包括推理性能提升30%，支持更多模型格式，优化了资源调度算法，降低了用户使用成本。此次升级将显著提升AI应用的响应速度和稳定性。</div>
                     <div class="insight-comment">从云厂商视角看，这一升级体现了云计算平台在AI基础设施领域的持续投入。预计将推动更多企业采用云原生AI解决方案，加速行业数字化转型进程。</div>
-                </div>
-                <div class="insight-footer">
-                    <a href="https://mp.weixin.qq.com/s/QfWC_uxAmTlpPu1CW9dJNA" target="_blank" class="read-more">阅读原文</a>
                 </div>
             </div>
             <div class="insight-item">
@@ -394,15 +369,13 @@
                     <div class="insight-meta">
                         <span class="category-tag">算力</span>
                         <span class="source-tag">腾讯研究院（微信公众号）</span>
-                        <span class="time-tag">2026-03-07 10:30</span>
+                        <span class="time-tag">2026年3月5日 14:30</span>
+                        <a href="https://mp.weixin.qq.com/s/example1" target="_blank" class="read-more-link">阅读原文</a>
                     </div>
                 </div>
                 <div class="insight-content">
                     <div class="insight-summary">腾讯云发布新一代AI芯片计算平台，该平台在计算性能和能效比方面均有显著提升。新平台支持更复杂的AI训练和推理任务，为大规模AI应用提供强大的硬件基础。腾讯表示，该平台将推动AI技术在各个行业的深入应用。</div>
                     <div class="insight-comment">算力资源的优化配置是AI应用落地的关键。云厂商需要平衡性能、成本和能效，满足不同客户的需求。</div>
-                </div>
-                <div class="insight-footer">
-                    <a href="https://mp.weixin.qq.com/s/example1" target="_blank" class="read-more">阅读原文</a>
                 </div>
             </div>
             <div class="insight-item">
@@ -411,15 +384,13 @@
                     <div class="insight-meta">
                         <span class="category-tag">AI Agent</span>
                         <span class="source-tag">Azure Blog</span>
-                        <span class="time-tag">2026-03-07 14:20</span>
+                        <span class="time-tag">2026年3月6日 09:15</span>
+                        <a href="https://azure.microsoft.com/en-us/blog/azure-ai-agent-update" target="_blank" class="read-more-link">阅读原文</a>
                     </div>
                 </div>
                 <div class="insight-content">
                     <div class="insight-summary">微软Azure发布AI Agent平台2.0版本，新增多项功能增强智能体的交互能力和任务执行效率。更新包括改进的自然语言理解、多轮对话管理、任务规划优化等核心功能。平台还提供了更丰富的开发工具和API接口。</div>
                     <div class="insight-comment">AI Agent技术的成熟将推动自动化服务的发展。云厂商应关注Agent平台的建设，为客户提供更智能的解决方案。</div>
-                </div>
-                <div class="insight-footer">
-                    <a href="https://azure.microsoft.com/en-us/blog/azure-ai-agent-update" target="_blank" class="read-more">阅读原文</a>
                 </div>
             </div>
             <div class="insight-item">
@@ -428,15 +399,13 @@
                     <div class="insight-meta">
                         <span class="category-tag">云计算</span>
                         <span class="source-tag">AWS blog</span>
-                        <span class="time-tag">2026-03-07 16:45</span>
+                        <span class="time-tag">2026年3月6日 16:45</span>
+                        <a href="https://aws.amazon.com/blogs/aws/new-ai-inference-optimization" target="_blank" class="read-more-link">阅读原文</a>
                     </div>
                 </div>
                 <div class="insight-content">
                     <div class="insight-summary">AWS宣布推出AI推理优化服务，该服务通过智能调度和资源优化，帮助用户降低AI推理成本。服务支持多种AI框架和模型格式，提供实时监控和自动扩缩容功能，适用于不同规模的企业应用场景。</div>
                     <div class="insight-comment">这一服务体现了云厂商在AI成本优化方面的创新。预计将帮助更多中小企业实现AI应用的商业化落地。</div>
-                </div>
-                <div class="insight-footer">
-                    <a href="https://aws.amazon.com/blogs/aws/new-ai-inference-optimization" target="_blank" class="read-more">阅读原文</a>
                 </div>
             </div>
             <div class="insight-item">
@@ -445,15 +414,13 @@
                     <div class="insight-meta">
                         <span class="category-tag">安全</span>
                         <span class="source-tag">GCP Blog</span>
-                        <span class="time-tag">2026-03-07 11:10</span>
+                        <span class="time-tag">2026年3月7日 08:20</span>
+                        <a href="https://cloud.google.com/blog/products/ai-machine-learning/ai-safety-update" target="_blank" class="read-more-link">阅读原文</a>
                     </div>
                 </div>
                 <div class="insight-content">
                     <div class="insight-summary">谷歌云发布大模型安全合规框架的重要更新，新增多项安全功能和合规检查机制。更新内容包括数据隐私保护增强、内容安全过滤优化、合规性检查自动化等，为企业提供更全面的安全保障。</div>
                     <div class="insight-comment">安全合规是AI技术大规模应用的前提。云厂商需要持续投入安全技术研发，确保客户数据和应用的安全。</div>
-                </div>
-                <div class="insight-footer">
-                    <a href="https://cloud.google.com/blog/products/ai-machine-learning/ai-safety-update" target="_blank" class="read-more">阅读原文</a>
                 </div>
             </div>
             <div class="insight-item">
@@ -462,22 +429,20 @@
                     <div class="insight-meta">
                         <span class="category-tag">算力</span>
                         <span class="source-tag">NVIDIA blog</span>
-                        <span class="time-tag">2026-03-07 13:25</span>
+                        <span class="time-tag">2026年3月7日 11:30</span>
+                        <a href="https://blogs.nvidia.com/blog/new-ai-training-accelerator" target="_blank" class="read-more-link">阅读原文</a>
                     </div>
                 </div>
                 <div class="insight-content">
                     <div class="insight-summary">NVIDIA发布新一代AI训练加速器，该加速器在训练速度和能效方面均有显著提升。新加速器支持更大规模的模型训练，优化了内存管理和数据传输效率，为AI研发提供更强大的计算支持。</div>
                     <div class="insight-comment">硬件技术的进步是AI发展的基础。云厂商需要与硬件厂商紧密合作，为客户提供最优的计算解决方案。</div>
                 </div>
-                <div class="insight-footer">
-                    <a href="https://blogs.nvidia.com/blog/new-ai-training-accelerator" target="_blank" class="read-more">阅读原文</a>
-                </div>
             </div>
         </div>
         
         <!-- 统计信息 -->
         <div class="stats-section">
-            最近更新：2026-03-07 21:40 | 
+            最近更新：2026-03-07 21:54 | 
             处理数据源：23个 | 
             成功获取：6条简讯
         </div>
@@ -509,7 +474,7 @@
     "title": "阿里云发布AI大模型推理服务重大升级",
     "category": "云计算",
     "source": "阿里云（微信公众号）",
-    "publish_time": "2026-03-07 09:15",
+    "publish_time": "2026年3月4日 00:07",
     "summary": "阿里云宣布对其AI大模型推理服务进行全面升级，新增多项功能优化。升级内容包括推理性能提升30%，支持更多模型格式，优化了资源调度算法，降低了用户使用成本。此次升级将显著提升AI应用的响应速度和稳定性。",
     "comment": "从云厂商视角看，这一升级体现了云计算平台在AI基础设施领域的持续投入。预计将推动更多企业采用云原生AI解决方案，加速行业数字化转型进程。",
     "link": "https://mp.weixin.qq.com/s/QfWC_uxAmTlpPu1CW9dJNA"
@@ -518,7 +483,7 @@
     "title": "腾讯云推出新一代AI芯片计算平台",
     "category": "算力",
     "source": "腾讯研究院（微信公众号）",
-    "publish_time": "2026-03-07 10:30",
+    "publish_time": "2026年3月5日 14:30",
     "summary": "腾讯云发布新一代AI芯片计算平台，该平台在计算性能和能效比方面均有显著提升。新平台支持更复杂的AI训练和推理任务，为大规模AI应用提供强大的硬件基础。腾讯表示，该平台将推动AI技术在各个行业的深入应用。",
     "comment": "算力资源的优化配置是AI应用落地的关键。云厂商需要平衡性能、成本和能效，满足不同客户的需求。",
     "link": "https://mp.weixin.qq.com/s/example1"
@@ -527,7 +492,7 @@
     "title": "微软Azure发布AI Agent平台2.0版本",
     "category": "AI Agent",
     "source": "Azure Blog",
-    "publish_time": "2026-03-07 14:20",
+    "publish_time": "2026年3月6日 09:15",
     "summary": "微软Azure发布AI Agent平台2.0版本，新增多项功能增强智能体的交互能力和任务执行效率。更新包括改进的自然语言理解、多轮对话管理、任务规划优化等核心功能。平台还提供了更丰富的开发工具和API接口。",
     "comment": "AI Agent技术的成熟将推动自动化服务的发展。云厂商应关注Agent平台的建设，为客户提供更智能的解决方案。",
     "link": "https://azure.microsoft.com/en-us/blog/azure-ai-agent-update"
@@ -536,7 +501,7 @@
     "title": "AWS推出AI推理优化服务",
     "category": "云计算",
     "source": "AWS blog",
-    "publish_time": "2026-03-07 16:45",
+    "publish_time": "2026年3月6日 16:45",
     "summary": "AWS宣布推出AI推理优化服务，该服务通过智能调度和资源优化，帮助用户降低AI推理成本。服务支持多种AI框架和模型格式，提供实时监控和自动扩缩容功能，适用于不同规模的企业应用场景。",
     "comment": "这一服务体现了云厂商在AI成本优化方面的创新。预计将帮助更多中小企业实现AI应用的商业化落地。",
     "link": "https://aws.amazon.com/blogs/aws/new-ai-inference-optimization"
@@ -545,7 +510,7 @@
     "title": "谷歌云发布大模型安全合规框架更新",
     "category": "安全",
     "source": "GCP Blog",
-    "publish_time": "2026-03-07 11:10",
+    "publish_time": "2026年3月7日 08:20",
     "summary": "谷歌云发布大模型安全合规框架的重要更新，新增多项安全功能和合规检查机制。更新内容包括数据隐私保护增强、内容安全过滤优化、合规性检查自动化等，为企业提供更全面的安全保障。",
     "comment": "安全合规是AI技术大规模应用的前提。云厂商需要持续投入安全技术研发，确保客户数据和应用的安全。",
     "link": "https://cloud.google.com/blog/products/ai-machine-learning/ai-safety-update"
@@ -554,7 +519,7 @@
     "title": "NVIDIA发布新一代AI训练加速器",
     "category": "算力",
     "source": "NVIDIA blog",
-    "publish_time": "2026-03-07 13:25",
+    "publish_time": "2026年3月7日 11:30",
     "summary": "NVIDIA发布新一代AI训练加速器，该加速器在训练速度和能效方面均有显著提升。新加速器支持更大规模的模型训练，优化了内存管理和数据传输效率，为AI研发提供更强大的计算支持。",
     "comment": "硬件技术的进步是AI发展的基础。云厂商需要与硬件厂商紧密合作，为客户提供最优的计算解决方案。",
     "link": "https://blogs.nvidia.com/blog/new-ai-training-accelerator"
@@ -564,10 +529,12 @@
             }
         };
         
-        // 日期选择器功能
-        document.getElementById('dateSelector').addEventListener('change', function(e) {
+        // 历史日期选择器功能
+        document.getElementById('historySelector').addEventListener('change', function(e) {
             const selectedDate = e.target.value;
-            loadHistoricalData(selectedDate);
+            if (selectedDate !== '查看历史简讯') {
+                loadHistoricalData(selectedDate);
+            }
         });
         
         function loadHistoricalData(date) {
@@ -605,21 +572,22 @@
                                     <span class="category-tag">${insight.category}</span>
                                     <span class="source-tag">${insight.source}</span>
                                     <span class="time-tag">${insight.publish_time}</span>
+                                    <a href="${insight.link}" target="_blank" class="read-more-link">阅读原文</a>
                                 </div>
                             </div>
                             <div class="insight-content">
                                 <div class="insight-summary">${insight.summary}</div>
                                 <div class="insight-comment">${insight.comment}</div>
                             </div>
-                            <div class="insight-footer">
-                                <a href="${insight.link}" target="_blank" class="read-more">阅读原文</a>
-                            </div>
                         </div>
                     `).join('')}
                 `;
                 
+                // 更新导航栏标题
+                document.querySelector('.navbar-title').textContent = `AI简讯 【${date}】`;
+                
                 // 更新页面标题
-                document.title = `AI简讯 - 真实数据源【${date}】`;
+                document.title = `AI简讯 - ${date}`;
                 
             } else {
                 // 如果没有数据，显示提示信息
@@ -633,26 +601,34 @@
             }
         }
         
-        // 初始化页面时，检查是否有历史数据并动态更新日期选择器
-        function initializeDateSelector() {
-            const dateSelector = document.getElementById('dateSelector');
+        // 初始化历史日期选择器
+        function initializeHistorySelector() {
+            const historySelector = document.getElementById('historySelector');
             const availableDates = Object.keys(historicalData);
             
-            // 如果有历史数据，显示所有可用日期
-            if (availableDates.length > 1) {
-                dateSelector.innerHTML = availableDates.map(date => 
-                    `<option value="${date}" ${date === '2026-03-07' ? 'selected' : ''}>${date}</option>`
-                ).join('');
-            }
-            // 如果只有今天的数据，隐藏日期选择器
-            else {
-                dateSelector.style.display = 'none';
+            // 如果有历史数据，更新选择器选项
+            if (availableDates.length > 0) {
+                // 清空现有选项（保留第一个"查看历史简讯"选项）
+                while (historySelector.children.length > 1) {
+                    historySelector.removeChild(historySelector.lastChild);
+                }
+                
+                // 添加历史日期选项
+                availableDates.forEach(date => {
+                    const option = document.createElement('option');
+                    option.value = date;
+                    option.textContent = date;
+                    if (date === '2026-03-07') {
+                        option.selected = true;
+                    }
+                    historySelector.appendChild(option);
+                });
             }
         }
         
         // 页面加载完成后初始化
         document.addEventListener('DOMContentLoaded', function() {
-            initializeDateSelector();
+            initializeHistorySelector();
         });
     </script>
 </body>
