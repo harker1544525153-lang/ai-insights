@@ -1,0 +1,40 @@
+[
+  {
+    "name": "阿里云（微信公众号）",
+    "type": "rss",
+    "rss_url": "https://wechatrss.waytomaster.com/api/rss/MzA4NjI4MzM4MQ==",
+    "home_url": "",
+    "category": "云计算",
+    "priority": 10,
+    "enabled": 1,
+    "获取简讯数": 3,
+    "获取结果": "成功获取今日简讯",
+    "生成时间": "2026-03-07 19:01:18",
+    "最新简讯发布时间": "2026-03-04 00:07"
+  },
+  {
+    "name": "腾讯研究院（微信公众号）",
+    "type": "rss",
+    "rss_url": "https://wechatrss.waytomaster.com/api/rss/MjM5OTE0ODA2MQ==",
+    "home_url": "",
+    "category": "技术趋势",
+    "priority": 10,
+    "enabled": 1,
+    "获取简讯数": 0,
+    "获取结果": "最新文章时间2026-03-06，不满足今日要求",
+    "生成时间": "2026-03-07 19:01:18",
+    "最新简讯发布时间": "2026-03-06"
+  },
+  {
+    "name": "AWS blog",
+    "type": "rss",
+    "rss_url": "https://aws.amazon.com/blogs/aws/feed/",
+    "home_url": "https://aws.amazon.com/blogs/",
+    "category": "云计算",
+    "priority": 10,
+    "enabled": 1,
+    "获取简讯数": 0,
+    "获取结果": "rss_url地址访问失败，导致无数据",
+    "生成时间": "2026-03-07 19:01:18"
+  }
+]

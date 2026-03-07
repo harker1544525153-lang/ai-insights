@@ -47,243 +47,277 @@
 ```bash
 # 安装核心依赖
 pip install pandas feedparser beautifulsoup4 requests openpyxl
-
-# 或使用requirements.txt
-pip install -r requirements.txt
 ```
 
 ### 3. 运行系统
 ```bash
-# 测试运行（模拟数据）
-python main_enhanced.py --test
+# 手动运行简讯生成
+python get_latest_insights.py
 
-# 完整运行（真实数据采集）
-python main_enhanced.py
+# 测试数据源统计管理器
+python source/simple_result_ai_manager.py
 
-# 带参数运行
-python main_enhanced.py --max-sources 10
+# 或使用完整系统
+python run.py
 ```
 
-### 4. 查看结果
-- **网页版**: 打开 `result/index.html`
-- **文本版**: 查看 `result/latest.md`
-- **数据版**: 查看 `result/latest.json`
-- **统计版**: 查看 `source/resultAI.xlsx`
+## ⚙️ 全流程定时生成与GitHub上传流程
 
-## 📁 项目结构
+### 📅 定时生成流程
 
-```
-Demo2/
-├── main_enhanced.py              # 主程序入口
-├── source/                       # 数据源管理
-│   ├── AI_sources_updated.py     # 增强版数据源管理器
-│   ├── AI_sources.xlsx          # 数据源配置（24个专业源）
-│   └── resultAI.xlsx            # 数据源统计结果
-├── crawler_enhanced.py          # 增强版数据采集器
-├── result/                       # 输出结果
-│   ├── index_optimized.html     # 优化后的网页模板
-│   ├── index.html               # 主页面（固定输出）
-│   ├── latest.md                # Markdown报告（固定输出）
-│   ├── latest.json              # JSON数据文件
-│   ├── 每日AI洞察简讯_*.md       # 详细Markdown报告
-│   └── history/                 # 历史存档（30天）
-├── data/                         # 原始数据
-│   └── raw_articles_*.json       # 原始采集数据
-├── .github/workflows/           # GitHub Actions配置
-│   └── daily-fetch.yml          # 定时任务配置
-└── requirements.txt             # 依赖包列表
+#### 1. 数据采集阶段
+```python
+# 从配置的数据源采集数据
+- 读取 source/AI_sources.xlsx 配置
+- 按优先级顺序访问各数据源
+- 支持RSS源和网页内容采集
+- 自动处理网络异常和超时
 ```
 
-## ⚙️ 配置说明
-
-### 1. 数据源配置 (source/AI_sources.xlsx)
-
-Excel文件包含以下列：
-- `name`: 数据源名称（如：AWS blog、阿里云等）
-- `type`: 数据源类型（rss/web）
-- `rss_url`: RSS地址（优先使用）
-- `home_url`: 网页URL（备用）
-- `category`: 分类（11个固定分类）
-- `priority`: 优先级（1-10）
-- `enabled`: 是否启用（1/0）
-
-### 2. 11个固定分类
-
-1. **大模型**: LLM、GPT、千问、文心一言、通义等
-2. **AI Agent**: 智能体、Agent平台、自动化等
-3. **算力**: GPU、TPU、AI芯片、计算卡、数据中心等
-4. **政策合规**: 政策、法规、标准、监管、安全等
-5. **行业方案**: 行业应用、解决方案、落地案例等
-6. **云计算**: 云服务、云平台、云原生、云安全等
-7. **开源**: 开源项目、开源工具、开源框架等
-8. **商业化**: 商业模式、商业应用、市场机会等
-9. **安全**: 网络安全、数据安全、应用安全等
-10. **企业服务**: 企业应用、企业软件、企业平台等
-11. **技术趋势**: 技术发展、技术创新、技术突破等
-
-## 📊 数据源统计说明
-
-### resultAI.xlsx 文件结构
-
-| 字段 | 说明 | 示例 |
-|------|------|------|
-| name | 数据源名称 | AWS blog |
-| type | 数据源类型 | rss |
-| category | 分类 | 云计算 |
-| priority | 优先级 | 10 |
-| article_count | 获取文章数 | 5 |
-| status | 获取状态 | 成功/失败 |
-| latest_publish_time | 最新发布时间 | 2026-03-07 09:30 |
-| failure_reason | 失败原因 | 网页加载失败/无今日简讯 |
-
-### 失败原因分类
-
-1. **无今日简讯**: 数据源最新文章发布时间不满足今日要求
-2. **网页加载失败**: 网络问题或网站不可访问
-3. **RSS解析失败**: RSS格式错误或无法解析
-4. **内容提取失败**: 网页结构变化导致无法提取内容
-5. **其他错误**: 未知的系统错误
-
-## 🔄 定时任务配置
-
-### 1. Windows任务计划程序
-
-创建批处理文件 `setup_scheduler.bat`：
-```batch
-@echo off
-echo 设置AI简讯生成系统定时任务...
-
-# 创建8:00任务
-schtasks /create /tn "AI简讯生成-8:00" /tr "python C:\Users\h604658591\Demo2\main_enhanced.py" /sc daily /st 08:00
-
-# 创建8:30任务
-schtasks /create /tn "AI简讯生成-8:30" /tr "python C:\Users\h604658591\Demo2\main_enhanced.py" /sc daily /st 08:30
-
-echo 定时任务设置完成！
-pause
+#### 2. 内容处理阶段
+```python
+# 智能内容处理流程
+- 日期筛选：仅保留今日及昨日内容
+- 去重处理：基于标题和链接去重
+- 智能分类：11大固定分类匹配
+- 优先级计算：技术变化、商机、成本等维度
+- 内容生成：200-300字摘要 + 云厂商视角点评
 ```
 
-### 2. GitHub Actions (推荐)
+#### 3. 输出生成阶段
+```python
+# 多格式文件生成
+- Markdown格式：result/latest.md
+- HTML网页：result/index.html
+- 数据统计：source/resultAI.csv
+- 历史存档：result/history/YYYY-MM-DD.html
+```
 
-配置文件 `.github/workflows/daily-fetch.yml`：
+#### 4. GitHub自动上传
+```bash
+# 自动提交到GitHub
+- 检查文件变更：git status
+- 添加变更文件：git add result/ source/
+- 提交变更：git commit -m "更新AI简讯 YYYY-MM-DD"
+- 推送到远程：git push origin main
+```
+
+### 🔄 自动化定时任务配置
+
+#### GitHub Actions配置 (推荐)
 ```yaml
-name: Daily AI Insights
+# .github/workflows/daily-fetch.yml
+name: 每日AI简讯生成
 on:
   schedule:
-    - cron: '0 0 * * *'  # 每天UTC时间0:00（北京时间8:00）
-    - cron: '30 0 * * *' # 每天UTC时间0:30（北京时间8:30）
-  workflow_dispatch:     # 支持手动触发
+    - cron: '0 0 * * *'  # 每天UTC时间00:00（北京时间08:00）
+    - cron: '30 0 * * *' # 每天UTC时间00:30（北京时间08:30）
+  workflow_dispatch:  # 支持手动触发
 
 jobs:
   generate-insights:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Set up Python
+      - name: 设置Python环境
         uses: actions/setup-python@v4
         with:
-          python-version: '3.8'
-      - name: Install dependencies
-        run: pip install -r requirements.txt
-      - name: Run AI Insights Generator
-        run: python main_enhanced.py
-      - name: Commit and push if changed
+          python-version: '3.10'
+      - name: 安装依赖
+        run: pip install pandas feedparser requests openpyxl
+      - name: 生成AI简讯
+        run: python get_latest_insights.py
+      - name: 提交到GitHub
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add result/ source/resultAI.xlsx
-          git commit -m "Update AI insights and statistics" || exit 0
+          git add result/ source/
+          git commit -m "自动更新AI简讯 $(date +'%Y-%m-%d')" || exit 0
           git push
 ```
 
-## 🛠️ 使用参数
-
-### main_enhanced.py 参数选项
-```bash
-# 测试模式（使用模拟数据）
-python main_enhanced.py --test
-
-# 限制数据源数量
-python main_enhanced.py --max-sources 5
-
-# 详细日志输出
-python main_enhanced.py --verbose
+#### Windows任务计划程序
+```batch
+# setup_scheduler.bat
+@echo off
+echo 设置每日AI简讯自动生成任务
+schtasks /create /tn "每日AI简讯生成" /tr "python C:\path\to\get_latest_insights.py" /sc daily /st 08:00 /ru "SYSTEM"
+echo 任务设置完成
 ```
 
-## 📈 系统运行流程
+## 📊 数据源统计规范
 
-1. **数据采集** → 从24个专业数据源获取AI新闻
-2. **智能处理** → 去重、分类、优先级计算
-3. **内容生成** → AI摘要和云厂商视角分析
-4. **多格式输出** → 生成HTML、Markdown、JSON、Excel文件
-5. **历史存档** → 自动保存30天历史数据
-6. **统计记录** → 生成数据源获取情况统计
+### resultAI数据表格式
 
-## 🎯 输出文件示例
+当仅获取到部分数据源信息时，resultAI表格将**仅呈现成功获取的数据源信息**，确保数据准确性。
 
-### result/index.html 网页界面
-- 响应式设计，适配多设备
-- 日期选择器，支持历史查看
-- 实时统计信息显示
-- 一键分享功能
+系统使用 `source/simple_result_ai_manager.py` 来管理数据源统计，该模块具有以下特点：
 
-### result/latest.md 分享格式
+- **不依赖外部库**：使用Python标准库实现，无需安装pandas等依赖
+- **智能数据呈现**：仅显示实际处理过的数据源，避免空数据干扰
+- **多格式输出**：同时生成CSV和JSON格式，便于不同场景使用
+- **优先级排序**：按数据源优先级自动排序，高优先级在前
+
+#### 表格结构
+| 字段名 | 类型 | 说明 | 示例 |
+|--------|------|------|------|
+| name | 文本 | 数据源名称 | 阿里云（微信公众号） |
+| type | 文本 | 数据源类型 | rss |
+| rss_url | 文本 | RSS地址 | https://wechatrss.waytomaster.com/api/rss/... |
+| home_url | 文本 | 主页地址 | https://mp.weixin.qq.com/ |
+| category | 文本 | 主要分类 | 云计算 |
+| priority | 数字 | 优先级(1-10) | 10 |
+| enabled | 布尔 | 是否启用 | 1 |
+| 获取简讯数 | 数字 | 成功获取的简讯数量 | 3 |
+| 获取结果 | 文本 | 获取状态说明 | 成功获取今日简讯 |
+| 生成时间 | 时间 | 数据生成时间 | 2026-03-07 18:16:35 |
+
+#### 部分数据源获取示例
+当系统仅成功获取部分数据源时，resultAI表格将显示：
+
+```csv
+name,type,rss_url,home_url,category,priority,enabled,获取简讯数,获取结果,生成时间
+阿里云（微信公众号）,rss,https://wechatrss.waytomaster.com/api/rss/...,,云计算,10,1,3,成功获取今日简讯,2026-03-07 18:16:35
+腾讯研究院（微信公众号）,rss,https://wechatrss.waytomaster.com/api/rss/...,,技术趋势,10,1,0,最新文章时间2026-03-06，不满足今日要求,2026-03-07 18:16:35
+AWS blog,rss,https://aws.amazon.com/blogs/aws/feed/,https://aws.amazon.com/blogs/,云计算,10,1,0,rss_url地址访问失败，导致无数据,2026-03-07 18:16:35
+```
+
+### 获取结果状态说明
+
+#### 成功状态
+- `成功获取今日简讯`：正常获取到今日内容
+- `获取到历史简讯`：获取到非今日但有价值的内容
+
+#### 失败状态
+- `最新文章时间YYYY-MM-DD，不满足今日要求`：内容发布时间不符合要求
+- `rss_url地址访问失败，导致无数据`：网络或地址问题
+- `数据源暂时不可用`：服务器维护或限制
+- `内容格式解析失败`：HTML/RSS格式异常
+
+## 🎨 固定生成样式与内容格式
+
+### HTML网页样式规范
+
+#### 导航栏设计
+```html
+<div class="navbar">
+    <div class="navbar-title">AI简讯</div>
+    <div class="navbar-controls">
+        <select class="date-selector" id="dateSelector">
+            <option value="当前日期">当前日期</option>
+        </select>
+        <button class="share-btn" onclick="shareContent()">分享</button>
+        <button class="history-btn" onclick="openHistoryModal()">历史数据</button>
+    </div>
+</div>
+```
+
+#### 简讯预览区域
+- **高度限制**: 200-300px，显示所有标题不滑动
+- **标题格式**: 纯文本序号 + 标题 + 分类标签
+- **间距设计**: 标题之间紧凑排列
+
+#### 详细简讯格式
+```html
+<div class="insight">
+    <div class="insight-header">
+        <div class="insight-title">序号. 标题</div>
+        <div class="insight-link">
+            <a href="原文链接" target="_blank" class="read-link">阅读原文</a>
+        </div>
+    </div>
+    <div class="insight-meta">
+        分类：类别 | 来源：数据源 | 发布时间：YYYY-MM-DD HH:MM
+    </div>
+    <div class="insight-summary">200-300字客观摘要</div>
+    <div class="insight-comment">2-3句云厂商视角点评</div>
+</div>
+```
+
+### Markdown内容格式规范
+
+#### 标题格式
 ```markdown
-# AI简讯【2026年3月7日】
+# AI简讯【YYYY-MM-DD】
 
-1、【AWS宣布Amazon Bedrock新增多项AI推理功能】
-摘要：AWS宣布Amazon Bedrock新增多项功能，包括增强的推理能力和更灵活的模型配置选项。
-点评：从云厂商视角看，AWS持续强化AI基础设施，这将进一步巩固其在云计算AI服务领域的领先地位。
-原文链接：https://aws.amazon.com/blogs/aws/new-amazon-bedrock-features/
+## 今日简讯概览（基于真实数据源）
 
-2、【NVIDIA发布新一代AI芯片，性能提升显著】
-摘要：NVIDIA最新发布的AI芯片在计算性能和能效方面都有显著提升。
-点评：作为AI硬件领导者，NVIDIA的技术迭代将推动整个AI行业的发展速度。
-原文链接：https://blogs.nvidia.com/new-ai-chip/
-
-详见原文网址：https://harker1544525153-lang.github.io/ai-insights/
+1. **标题** - 分类 - 发布时间
+2. **标题** - 分类 - 发布时间
 ```
 
-### source/resultAI.xlsx 统计示例
-| 数据源 | 类型 | 分类 | 文章数 | 状态 | 失败原因 |
-|--------|------|------|--------|------|----------|
-| AWS blog | rss | 云计算 | 5 | 成功 | - |
-| 阿里云 | rss | 云计算 | 3 | 成功 | - |
-| 36氪 | web | 技术趋势 | 0 | 失败 | 网页加载失败 |
-| NVIDIA blog | rss | 算力 | 2 | 成功 | - |
+#### 详细内容格式
+```markdown
+### 1、标题
+**分类：** 云计算  
+**来源：** 阿里云（微信公众号）  
+**发布时间：** YYYY-MM-DD HH:MM  
 
-## 🔧 故障排除
+**摘要：** 200-300字客观描述，包含主体+时间+核心动作+相关数据
+
+**点评：** 2-3句云厂商视角分析，关注行业影响、竞争格局、发展趋势
+
+**原文链接：** https://example.com
+```
+
+## 🔧 数据源配置优化
+
+### AI_sources.xlsx配置规范
+
+#### 数据源筛选规则
+1. **优先级排序**: 按priority字段降序排列
+2. **启用状态**: 仅处理enabled=1的数据源
+3. **类型支持**: 优先处理RSS源，其次网页爬取
+4. **分类匹配**: 根据category字段进行内容分类
+
+#### 失败处理机制
+- **网络异常**: 自动重试3次，间隔5秒
+- **格式错误**: 跳过无法解析的数据源
+- **时间过滤**: 仅保留今日及昨日内容
+- **去重处理**: 基于标题和链接去重
+
+## 📈 监控与日志
+
+### 运行统计信息
+每次运行后输出以下统计：
+- 开始时间和结束时间
+- 运行时长
+- 处理源数量
+- 获取文章数
+- 筛选后文章数
+- 最终文章数
+- 分类统计
+- 错误信息（如有）
+
+### 日志文件
+- **运行日志**: 记录每次执行的详细过程
+- **错误日志**: 记录失败原因和异常信息
+- **数据日志**: 记录各数据源的获取状态
+
+## 🚨 故障排除
 
 ### 常见问题
 
-1. **依赖安装失败**
-   ```bash
-   # 使用国内镜像源
-   pip install -i https://pypi.tuna.tsinghua.edu.cn/simple -r requirements.txt
-   ```
+#### 1. 数据源获取失败
+- **检查网络连接**
+- **验证RSS地址有效性**
+- **检查数据源是否维护**
 
-2. **数据采集失败**
-   - 检查网络连接
-   - 验证数据源URL是否有效
-   - 查看日志文件获取详细错误信息
+#### 2. GitHub上传失败
+- **检查Git配置**
+- **验证SSH密钥或Token**
+- **检查文件权限**
 
-3. **输出文件未生成**
-   - 检查文件权限
-   - 验证输出目录是否存在
-   - 查看系统日志
+#### 3. 定时任务不执行
+- **检查系统时间设置**
+- **验证任务计划程序状态**
+- **检查Python环境路径**
 
-### 日志文件
-- 系统运行日志：自动生成在控制台和日志文件中
-- 数据源统计：记录在 `source/resultAI.xlsx` 中
-- 错误详情：查看Python异常堆栈信息
-
-## 📞 技术支持
-
-如有问题或建议，请参考：
-- 查看 `source/resultAI.xlsx` 获取数据源状态
-- 检查系统日志获取详细错误信息
-- 验证数据源配置是否正确
+### 联系方式
+如有问题，请通过GitHub Issues提交反馈。
 
 ---
 
-**每日自动获取AI简讯Agent** - 让AI行业资讯获取更智能、更高效！
+**最后更新**: 2026-03-07  
+**版本**: v3.0  
+**维护者**: AI简讯自动化系统
