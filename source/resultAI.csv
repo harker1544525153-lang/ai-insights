@@ -1,4 +1,4 @@
 name,type,rss_url,home_url,category,priority,enabled,获取简讯数,获取结果,生成时间,最新简讯发布时间
-阿里云（微信公众号）,rss,https://wechatrss.waytomaster.com/api/rss/MzA4NjI4MzM4MQ==,,云计算,10,1,0,未获取到今日简讯,2026-03-07 19:42:40,
-腾讯研究院（微信公众号）,rss,https://wechatrss.waytomaster.com/api/rss/MjM5OTE0ODA2MQ==,,技术趋势,10,1,0,未获取到今日简讯,2026-03-07 19:42:40,
-AWS blog,rss,https://aws.amazon.com/blogs/aws/feed/,https://aws.amazon.com/blogs/,云计算,10,1,1,成功获取今日简讯,2026-03-07 19:42:40,2026-03-07 09:00
+阿里云（微信公众号）,rss,https://wechatrss.waytomaster.com/api/rss/MzA4NjI4MzM4MQ==,,云计算,10,1,0,未获取到今日简讯,2026-03-07 19:43:55,
+腾讯研究院（微信公众号）,rss,https://wechatrss.waytomaster.com/api/rss/MjM5OTE0ODA2MQ==,,技术趋势,10,1,0,未获取到今日简讯,2026-03-07 19:43:55,
+AWS blog,rss,https://aws.amazon.com/blogs/aws/feed/,https://aws.amazon.com/blogs/,云计算,10,1,1,成功获取今日简讯,2026-03-07 19:43:55,2026-03-07 09:00
