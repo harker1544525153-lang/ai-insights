@@ -12,12 +12,13 @@ class AINewsApp {
         this.displayCurrentDate();
         this.loadNews();
         this.loadSettings();
+        this.startAutoRefresh();
     }
 
     setupEventListeners() {
         // 刷新按钮
         document.getElementById('refreshBtn').addEventListener('click', () => {
-            this.refreshNews();
+            this.forceRefresh();
         });
 
         // 分享按钮
@@ -256,27 +257,7 @@ class AINewsApp {
         });
     }
 
-    refreshNews() {
-        const refreshBtn = document.getElementById('refreshBtn');
-        const originalText = refreshBtn.innerHTML;
-        
-        // 显示加载状态
-        refreshBtn.innerHTML = '<span class="btn-icon">⏳</span>刷新中...';
-        refreshBtn.disabled = true;
 
-        // 模拟刷新过程
-        setTimeout(() => {
-            this.displayCurrentDate();
-            this.loadNews();
-            
-            // 恢复按钮状态
-            refreshBtn.innerHTML = originalText;
-            refreshBtn.disabled = false;
-            
-            // 显示成功提示
-            this.showToast('资讯已刷新', 'success');
-        }, 1500);
-    }
 
     showSourceModal() {
         const modal = document.getElementById('sourceModal');
@@ -463,6 +444,87 @@ class AINewsApp {
             } catch (error) {
                 console.error('加载设置失败:', error);
             }
+        }
+    }
+
+    // 自动刷新机制
+    startAutoRefresh() {
+        // 每5分钟检查一次数据更新
+        setInterval(() => {
+            this.checkForUpdates();
+        }, 5 * 60 * 1000); // 5分钟
+
+        // 页面可见性变化时检查更新
+        document.addEventListener('visibilitychange', () => {
+            if (!document.hidden) {
+                this.checkForUpdates();
+            }
+        });
+
+        // 网络连接恢复时检查更新
+        window.addEventListener('online', () => {
+            this.checkForUpdates();
+        });
+    }
+
+    async checkForUpdates() {
+        try {
+            const response = await fetch('data/news.json?t=' + Date.now());
+            if (response.ok) {
+                const data = await response.json();
+                const currentLastUpdate = this.getCurrentLastUpdate();
+                
+                if (data.lastUpdated > currentLastUpdate) {
+                    console.log('检测到数据更新，自动刷新...');
+                    this.newsData = data.news;
+                    this.renderNews();
+                    this.displayCurrentDate();
+                    
+                    // 显示更新提示
+                    this.showToast('检测到最新资讯，已自动更新', 'success');
+                }
+            }
+        } catch (error) {
+            console.log('检查更新失败:', error);
+        }
+    }
+
+    getCurrentLastUpdate() {
+        // 从页面元素获取当前显示的最后更新时间
+        const lastUpdateElement = document.getElementById('lastUpdate');
+        if (lastUpdateElement) {
+            const text = lastUpdateElement.textContent;
+            const match = text.match(/\d{4}-\d{2}-\d{2}/);
+            if (match) {
+                return match[0] + 'T00:00:00Z'; // 简化处理
+            }
+        }
+        return '1970-01-01T00:00:00Z';
+    }
+
+    // 强制刷新数据
+    async forceRefresh() {
+        const refreshBtn = document.getElementById('refreshBtn');
+        const originalText = refreshBtn.innerHTML;
+        
+        refreshBtn.innerHTML = '<span class="btn-icon">⏳</span>刷新中...';
+        refreshBtn.disabled = true;
+
+        try {
+            // 清除缓存，强制重新加载
+            const response = await fetch('data/news.json?t=' + Date.now());
+            if (response.ok) {
+                const data = await response.json();
+                this.newsData = data.news;
+                this.renderNews();
+                this.displayCurrentDate();
+                this.showToast('资讯已刷新', 'success');
+            }
+        } catch (error) {
+            this.showToast('刷新失败，请重试', 'error');
+        } finally {
+            refreshBtn.innerHTML = originalText;
+            refreshBtn.disabled = false;
         }
     }
 }
