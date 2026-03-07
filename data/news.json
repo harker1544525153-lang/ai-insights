@@ -1,0 +1,113 @@
+{
+  "lastUpdated": "2026-03-07T10:00:00.000Z",
+  "news": [
+    {
+      "id": 1,
+      "title": "微软发布Copilot Pro 2026版，集成GPT-5技术",
+      "summary": "微软正式推出Copilot Pro 2026版本，深度集成GPT-5技术，在代码生成、文档处理和数据分析方面性能提升50%。",
+      "source": "DeepGEO",
+      "time": "2026-03-07 09:30",
+      "url": "https://deepgeo.org.cn/news/copilot-pro-2026",
+      "sourceType": "deepgeo"
+    },
+    {
+      "id": 2,
+      "title": "英伟达发布新一代AI芯片H200，性能提升3倍",
+      "summary": "英伟达发布H200 AI芯片，采用3nm工艺，AI训练性能相比H100提升300%，预计Q3量产。",
+      "source": "IDC",
+      "time": "2026-03-07 10:15",
+      "url": "https://idc.com/reports/nvidia-h200",
+      "sourceType": "idc"
+    },
+    {
+      "id": 3,
+      "title": "Gartner：2026年AI市场规模将突破3万亿美元",
+      "summary": "Gartner最新预测显示，全球AI市场规模将在2026年达到3.2万亿美元，年复合增长率达35%。",
+      "source": "Gartner",
+      "time": "2026-03-07 11:00",
+      "url": "https://gartner.com/ai-market-forecast-2026",
+      "sourceType": "gartner"
+    },
+    {
+      "id": 4,
+      "title": "AIWW指数：AI医疗应用搜索量月增65%",
+      "summary": "AIWW平台数据显示，AI在医疗健康领域的应用搜索指数本月环比增长65%，远程诊断和药物研发最受关注。",
+      "source": "AIWW",
+      "time": "2026-03-07 14:20",
+      "url": "https://aiww.com/trends/healthcare-mar-2026",
+      "sourceType": "aiww"
+    },
+    {
+      "id": 5,
+      "title": "Forrester：85%企业将AI纳入核心战略",
+      "summary": "Forrester调研显示，85%的全球500强企业已将AI技术纳入核心业务战略，预计2026年AI投资增长40%。",
+      "source": "Forrester",
+      "time": "2026-03-07 15:45",
+      "url": "https://forrester.com/ai-strategy-adoption",
+      "sourceType": "forrester"
+    },
+    {
+      "id": 6,
+      "title": "DeepMind开源多模态AI模型Gemini Ultra",
+      "summary": "DeepMind宣布开源其多模态AI模型Gemini Ultra，支持文本、图像、音频和视频的联合理解与生成。",
+      "source": "DeepGEO",
+      "time": "2026-03-07 16:30",
+      "url": "https://deepgeo.org.cn/research/gemini-ultra",
+      "sourceType": "deepgeo"
+    },
+    {
+      "id": 7,
+      "title": "中国AI专利申请量全球第一，占比42%",
+      "summary": "世界知识产权组织报告显示，2025年中国AI专利申请量达到15.8万件，占全球总量的42%，连续三年位居第一。",
+      "source": "IDC",
+      "time": "2026-03-07 17:15",
+      "url": "https://idc.com/china-ai-patents-2026",
+      "sourceType": "idc"
+    },
+    {
+      "id": 8,
+      "title": "AI在金融风控领域准确率达99.2%",
+      "summary": "最新研究显示，AI在金融风险控制领域的准确率已达到99.2%，远超传统模型的95.8%。",
+      "source": "Gartner",
+      "time": "2026-03-07 18:00",
+      "url": "https://gartner.com/ai-finance-risk",
+      "sourceType": "gartner"
+    },
+    {
+      "id": 9,
+      "title": "全球AI人才缺口达800万，薪资上涨25%",
+      "summary": "LinkedIn数据显示，全球AI专业人才缺口达到800万人，AI工程师平均薪资同比上涨25%。",
+      "source": "AIWW",
+      "time": "2026-03-07 19:30",
+      "url": "https://aiww.com/talent/gap-2026",
+      "sourceType": "aiww"
+    },
+    {
+      "id": 10,
+      "title": "欧盟通过AI法案2.0，加强伦理监管",
+      "summary": "欧盟正式通过AI法案2.0版本，对高风险AI应用实施更严格的伦理审查和透明度要求。",
+      "source": "Forrester",
+      "time": "2026-03-07 20:15",
+      "url": "https://forrester.com/eu-ai-act-2",
+      "sourceType": "forrester"
+    },
+    {
+      "id": 11,
+      "title": "百度发布文心一言4.0，中文理解能力领先",
+      "summary": "百度发布文心一言4.0版本，在中文自然语言理解方面达到国际领先水平，支持更复杂的语义推理。",
+      "source": "DeepGEO",
+      "time": "2026-03-07 21:00",
+      "url": "https://deepgeo.org.cn/news/ernie-4",
+      "sourceType": "deepgeo"
+    },
+    {
+      "id": 12,
+      "title": "AI在气候变化预测中准确率提升至92%",
+      "summary": "联合国报告显示，AI在气候变化预测和极端天气预警方面的准确率已从78%提升至92%。",
+      "source": "IDC",
+      "time": "2026-03-07 22:30",
+      "url": "https://idc.com/ai-climate-prediction",
+      "sourceType": "idc"
+    }
+  ]
+}
