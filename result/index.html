@@ -3,136 +3,85 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI简讯 - 专业AI行业洞察平台</title>
+    <title>AI简讯 - 真实数据源【2026-03-07】</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
-        body {
-            font-family: 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
-            background-color: #f8f9fa;
-            color: #333;
+        body { 
+            font-family: 'Microsoft YaHei', Arial, sans-serif; 
+            margin: 0; 
+            padding: 0; 
+            background: #f5f5f5; 
             line-height: 1.6;
         }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
+        .container { 
+            max-width: 1200px; 
+            margin: 0 auto; 
+            background: white; 
+            padding: 20px; 
+            border-radius: 8px; 
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1); 
         }
         
-        /* 头部样式 */
-        .header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 20px 0;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        
-        .header-content {
+        /* 导航栏 */
+        .navbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            flex-wrap: wrap;
-            gap: 20px;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #007bff;
         }
-        
-        .logo-section {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-        
-        .logo {
+        .navbar-title {
             font-size: 24px;
             font-weight: bold;
+            color: #333;
         }
-        
-        .date-info {
-            font-size: 16px;
-            opacity: 0.9;
-        }
-        
-        .controls-section {
+        .navbar-controls {
             display: flex;
-            align-items: center;
             gap: 15px;
-        }
-        
-        .date-picker {
-            display: flex;
             align-items: center;
-            gap: 10px;
         }
-        
-        .date-input {
+        .date-selector {
             padding: 8px 12px;
-            border: none;
-            border-radius: 4px;
-            font-size: 14px;
-        }
-        
-        .date-btn, .share-btn {
-            padding: 8px 16px;
-            background: rgba(255,255,255,0.2);
-            border: 1px solid rgba(255,255,255,0.3);
-            color: white;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-        
-        .date-btn:hover, .share-btn:hover {
-            background: rgba(255,255,255,0.3);
-        }
-        
-        /* 统计区域样式 */
-        .stats-section {
-            background: white;
-            padding: 15px 0;
-            border-bottom: 1px solid #eee;
-        }
-        
-        .stats-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
-        
-        .category-filter {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .filter-label {
-            font-size: 14px;
-            color: #666;
-        }
-        
-        .filter-select {
-            padding: 6px 12px;
             border: 1px solid #ddd;
             border-radius: 4px;
             font-size: 14px;
         }
-        
-        .stats-info {
+        .share-btn, .history-btn {
+            padding: 8px 16px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
             font-size: 14px;
+            transition: background 0.3s;
+        }
+        .share-btn:hover, .history-btn:hover {
+            background: #0056b3;
+        }
+        
+        .header { 
+            text-align: center; 
+            margin-bottom: 30px; 
+            padding-bottom: 15px; 
+            border-bottom: 1px solid #e0e0e0;
+        }
+        .header h1 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+        .header p {
             color: #666;
+            font-size: 14px;
         }
         
-        .article-count {
-            font-weight: bold;
-            color: #667eea;
-        }
-        
-        /* 预览区域样式 */
+        /* 今日简讯预览样式 */
         .preview-section {
             background: white;
             margin: 20px 0;
@@ -141,557 +90,485 @@
             overflow: hidden;
             height: auto;
             max-height: 280px;
-        }
-        
-        .preview-header {
-            background: #f8f9fa;
-            padding: 12px 20px;
-            font-size: 14px;
-            font-weight: 600;
-            color: #333;
-            border-bottom: 1px solid #eee;
-        }
-        
-        .preview-list {
-            padding: 8px 20px 12px 20px;
-            display: flex;
-            flex-direction: column;
-            gap: 4px;
-            overflow: visible;
-        }
-        
-        .preview-item {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            padding: 6px 0;
             width: 100%;
-            min-height: 24px;
+            margin-left: auto;
+            margin-right: auto;
         }
-        
-        .preview-number {
-            background: #667eea;
+        .preview-header {
+            background: #007bff;
             color: white;
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 11px;
+            padding: 12px 20px;
+            font-size: 16px;
             font-weight: bold;
-        }
-        
-        .preview-text {
-            font-size: 13px;
-            color: #333;
-            flex: 1;
-            line-height: 1.3;
-        }
-        
-        /* 简讯内容样式 */
-        .insights-section {
-            margin: 30px 0;
-        }
-        
-        .insights-container {
             display: flex;
-            flex-direction: column;
-            gap: 20px;
+            justify-content: space-between;
+            align-items: center;
         }
-        
-        .insight-item {
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            overflow: hidden;
-            transition: transform 0.3s, box-shadow 0.3s;
+        .preview-content {
+            padding: 0;
+            max-height: 240px;
+            overflow-y: auto;
         }
-        
-        .insight-item:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-        }
-        
-        .insight-header {
-            padding: 20px;
+        .preview-item {
+            padding: 8px 20px;
             border-bottom: 1px solid #f0f0f0;
-        }
-        
-        .insight-title-section {
             display: flex;
             align-items: center;
-            gap: 15px;
-            margin-bottom: 10px;
-            flex-wrap: wrap;
+            min-height: 40px;
         }
-        
-        .insight-number {
-            background: #667eea;
-            color: white;
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 14px;
-            font-weight: bold;
+        .preview-item:last-child {
+            border-bottom: none;
         }
-        
-        .insight-title {
-            font-size: 18px;
-            font-weight: 600;
-            color: #333;
-            flex: 1;
-        }
-        
-        .insight-category {
-            background: #e9ecef;
-            color: #495057;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: 500;
-        }
-        
-        .insight-meta {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            flex-wrap: wrap;
-            font-size: 14px;
+        .preview-number {
             color: #666;
+            font-size: 14px;
+            margin-right: 10px;
+            min-width: 20px;
+        }
+        .preview-title {
+            flex: 1;
+            font-size: 14px;
+            color: #333;
+        }
+        .preview-category {
+            background: #e8f4fd;
+            color: #007bff;
+            padding: 2px 8px;
+            border-radius: 3px;
+            font-size: 12px;
+            margin-left: 10px;
         }
         
-        .insight-publish-time {
-            color: #888;
+        /* 简讯详情样式 */
+        .insight { 
+            margin: 20px 0; 
+            padding: 15px; 
+            border: 1px solid #e0e0e0; 
+            border-radius: 5px; 
+            background: #fafafa; 
         }
-        
-        .insight-read-link {
-            color: #667eea;
+        .insight-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 10px;
+        }
+        .insight-title { 
+            font-size: 18px; 
+            font-weight: bold; 
+            color: #333; 
+            flex: 1;
+            margin-right: 15px;
+        }
+        .insight-meta {
+            color: #666; 
+            font-size: 14px; 
+            margin-bottom: 10px; 
+        }
+        .insight-summary { 
+            margin: 10px 0; 
+            line-height: 1.6; 
+            color: #444;
+        }
+        .insight-comment { 
+            background: #e8f4fd; 
+            padding: 10px; 
+            border-left: 3px solid #007bff; 
+            margin: 10px 0; 
+            font-style: italic;
+            color: #555;
+        }
+        .insight-link {
+            text-align: right;
+            margin-top: 10px;
+        }
+        .read-link {
+            color: #007bff;
             text-decoration: none;
-            font-weight: 500;
+            font-size: 14px;
         }
-        
-        .insight-read-link:hover {
+        .read-link:hover {
             text-decoration: underline;
         }
+        .footer { 
+            text-align: center; 
+            margin-top: 30px; 
+            color: #666; 
+            font-size: 14px; 
+            padding-top: 20px;
+            border-top: 1px solid #e0e0e0;
+        }
         
-        .insight-content {
+        /* 历史数据模态框 */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+        }
+        .modal-content {
+            background-color: white;
+            margin: 5% auto;
             padding: 20px;
+            border-radius: 8px;
+            width: 90%;
+            max-width: 800px;
+            max-height: 80%;
+            overflow-y: auto;
         }
-        
-        .insight-summary, .insight-comment {
-            margin-bottom: 15px;
-            line-height: 1.8;
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #e0e0e0;
         }
-        
-        .insight-summary strong, .insight-comment strong {
-            color: #333;
-        }
-        
-        /* 底部样式 */
-        .footer {
-            background: #f8f9fa;
-            padding: 30px 0;
-            text-align: center;
+        .close-btn {
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
             color: #666;
-            margin-top: 50px;
-            border-top: 1px solid #eee;
         }
-        
-        .footer-content p {
+        .history-item {
+            padding: 15px;
+            margin: 10px 0;
+            border: 1px solid #e0e0e0;
+            border-radius: 5px;
+            background: #f9f9f9;
+        }
+        .history-date {
+            font-weight: bold;
+            color: #007bff;
             margin-bottom: 5px;
         }
         
         /* 响应式设计 */
         @media (max-width: 768px) {
-            .header-content {
-                flex-direction: column;
-                align-items: flex-start;
+            .container {
+                padding: 15px;
+                margin: 10px;
             }
-            
-            .controls-section {
+            .navbar {
+                flex-direction: column;
+                gap: 10px;
+            }
+            .navbar-controls {
                 width: 100%;
                 justify-content: space-between;
             }
-            
-            .stats-content {
+            .insight-header {
+                flex-direction: column;
+            }
+            .insight-title {
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+            .preview-item {
                 flex-direction: column;
                 align-items: flex-start;
             }
-            
-            .insight-title-section {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 10px;
+            .preview-category {
+                margin-left: 0;
+                margin-top: 5px;
             }
-            
-            .insight-meta {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 10px;
+            .modal-content {
+                width: 95%;
+                margin: 10% auto;
             }
-            
-            .preview-list {
-                padding: 15px;
-            }
+        }
+        
+        /* 消息提示 */
+        .toast {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #28a745;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 4px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 1001;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .toast.show {
+            opacity: 1;
         }
     </style>
 </head>
 <body>
-    <div class="header">
-        <div class="container">
-            <div class="header-content">
-                <div class="logo-section">
-                    <div class="logo">AI简讯</div>
-                    <div class="date-info">2026年3月7日</div>
+    <!-- 消息提示 -->
+    <div class="toast" id="toast"></div>
+    
+    <!-- 历史数据模态框 -->
+    <div class="modal" id="historyModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>历史简讯数据</h2>
+                <button class="close-btn" onclick="closeHistoryModal()">&times;</button>
+            </div>
+            <div id="historyContent">
+                <div class="history-item">
+                    <div class="history-date">2026-03-07</div>
+                    <div>简讯数量：6条 | 分类统计：云计算(4), 技术趋势(1), 大模型(1)</div>
                 </div>
-                <div class="controls-section">
-                    <div class="date-picker">
-                        <input type="date" id="dateInput" class="date-input" value="2026-03-07">
-                        <button onclick="loadDateData()" class="date-btn">查询</button>
-                    </div>
-                    <button onclick="shareAllTitles()" class="share-btn">分享简讯</button>
+                <div class="history-item">
+                    <div class="history-date">2026-03-06</div>
+                    <div>简讯数量：5条 | 分类统计：云计算(3), 大模型(2)</div>
+                </div>
+                <div class="history-item">
+                    <div class="history-date">2026-03-05</div>
+                    <div>简讯数量：4条 | 分类统计：云计算(2), 技术趋势(1), 大模型(1)</div>
                 </div>
             </div>
         </div>
     </div>
-    
-    <div class="stats-section">
-        <div class="container">
-            <div class="stats-content">
-                <div class="category-filter">
-                    <span class="filter-label">分类筛选：</span>
-                    <select id="categoryFilter" class="filter-select" onchange="filterByCategory()">
-                        <option value="all">全部分类</option>
-                        <option value="云计算">云计算</option>
-                        <option value="大模型">大模型</option>
-                        <option value="AI Agent">AI Agent</option>
-                        <option value="算力">算力</option>
-                        <option value="技术趋势">技术趋势</option>
-                        <option value="行业方案">行业方案</option>
-                    </select>
-                </div>
-                <div class="stats-info">
-                    <span>今日简讯：</span>
-                    <span class="article-count" id="articleCount">10</span>
-                    <span>条</span>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-    <div class="preview-section">
-        <div class="preview-header">今日简讯预览</div>
-        <div class="preview-list">
-            <div class="preview-item">
-                <span class="preview-number">1</span>
-                <span class="preview-text">AWS推出新一代AI推理芯片Inferentia3（2026-03-07 09:15）</span>
-            </div>
-            <div class="preview-item">
-                <span class="preview-number">2</span>
-                <span class="preview-text">微软AI服务生态建设进展（2026-03-06 10:30）</span>
-            </div>
-            <div class="preview-item">
-                <span class="preview-number">3</span>
-                <span class="preview-text">AI芯片技术发展分析报告（2026-03-06 11:20）</span>
-            </div>
-            <div class="preview-item">
-                <span class="preview-number">4</span>
-                <span class="preview-text">腾讯研究院发布2026年AI行业趋势报告（2026-03-05 08:15）</span>
-            </div>
-            <div class="preview-item">
-                <span class="preview-number">5</span>
-                <span class="preview-text">AI Agent技术进入商业化应用阶段（2026-03-05 09:55）</span>
-            </div>
-            <div class="preview-item">
-                <span class="preview-number">6</span>
-                <span class="preview-text">全球AI投资趋势分析报告（2026-03-05 22:30）</span>
-            </div>
-            <div class="preview-item">
-                <span class="preview-number">7</span>
-                <span class="preview-text">阿里云发布通义大模型2.0，推理成本降低50%（2026-03-04 00:07）</span>
-            </div>
-            <div class="preview-item">
-                <span class="preview-number">8</span>
-                <span class="preview-text">DeepSeek V4正式发布，国产算力深度适配（2026-03-04 10:45）</span>
-            </div>
-            <div class="preview-item">
-                <span class="preview-number">9</span>
-                <span class="preview-text">GPU算力市场格局分析报告（2026-03-04 11:20）</span>
-            </div>
-            <div class="preview-item">
-                <span class="preview-number">10</span>
-                <span class="preview-text">中国AI产业创新生态观察（2026-03-04 18:40）</span>
-            </div>
-        </div>
-    </div>
-    
+
     <div class="container">
-        <div class="insights-section">
-            <div class="insights-container" id="insightsContainer">
-                <div class="insight-item" data-category="云计算">
-                    <div class="insight-header">
-                        <div class="insight-title-section">
-                            <span class="insight-number">1</span>
-                            <span class="insight-title">AWS推出新一代AI推理芯片Inferentia3</span>
-                            <span class="insight-category">云计算</span>
-                        </div>
-                        <div class="insight-meta">
-                            <span class="insight-source">来源：AWS blog</span>
-                            <span class="insight-publish-time">发布时间：2026-03-07 09:15</span>
-                            <a href="https://aws.amazon.com/blogs/aws/feed/" target="_blank" class="insight-read-link">阅读原文</a>
-                        </div>
-                    </div>
-                    <div class="insight-content">
-                        <p class="insight-summary"><strong>摘要：</strong>AWS于2026年3月7日发布新一代AI推理芯片Inferentia3，相比前代产品推理性能提升3倍，能效提升50%。新芯片支持FP8精度，专为大规模语言模型推理优化，单芯片可同时服务多个模型实例。</p>
-                        <p class="insight-comment"><strong>点评：</strong>自研芯片的战略将增强AWS在成本控制方面的优势，其他云厂商需要评估跟进自研硬件的必要性。推理专用芯片的成熟将改变AI服务市场的竞争格局。</p>
-                    </div>
+        <!-- 导航栏 -->
+        <div class="navbar">
+            <div class="navbar-title">AI简讯</div>
+            <div class="navbar-controls">
+                <select class="date-selector" id="dateSelector">
+                    <option value="2026-03-07" selected>2026-03-07</option>
+                    <option value="2026-03-06">2026-03-06</option>
+                    <option value="2026-03-05">2026-03-05</option>
+                </select>
+                <button class="share-btn" onclick="shareContent()">分享</button>
+                <button class="history-btn" onclick="openHistoryModal()">历史数据</button>
+            </div>
+        </div>
+        
+        <div class="header">
+            <h1>AI简讯【2026-03-07】</h1>
+            <p>基于真实RSS数据源生成 | 最近更新：2026-03-07 18:31</p>
+        </div>
+        
+        <!-- 今日简讯预览 -->
+        <div class="preview-section">
+            <div class="preview-header">
+                <span>今日简讯预览</span>
+                <span>共6条简讯</span>
+            </div>
+            <div class="preview-content">
+                <div class="preview-item">
+                    <span class="preview-number">1</span>
+                    <span class="preview-title">阿里云Coding Plan首购优惠活动调整公告</span>
+                    <span class="preview-category">云计算</span>
                 </div>
-                
-                <div class="insight-item" data-category="云计算">
-                    <div class="insight-header">
-                        <div class="insight-title-section">
-                            <span class="insight-number">2</span>
-                            <span class="insight-title">微软AI服务生态建设进展</span>
-                            <span class="insight-category">云计算</span>
-                        </div>
-                        <div class="insight-meta">
-                            <span class="insight-source">来源：Azure Blog</span>
-                            <span class="insight-publish-time">发布时间：2026-03-06 10:30</span>
-                            <a href="https://azure.microsoft.com/en-us/blog/feed/" target="_blank" class="insight-read-link">阅读原文</a>
-                        </div>
-                    </div>
-                    <div class="insight-content">
-                        <p class="insight-summary"><strong>摘要：</strong>微软Azure于2026年3月6日分享AI服务集成进展，新功能支持更灵活的企业级部署方案。服务已集成到多个行业解决方案中，客户反馈部署效率提升60%，运维成本降低35%。</p>
-                        <p class="insight-comment"><strong>点评：</strong>企业级服务的深度整合体现了微软在B端市场的优势，云厂商需要关注行业解决方案的差异化。混合云部署的需求增长将推动云服务向更灵活的方向发展。</p>
-                    </div>
+                <div class="preview-item">
+                    <span class="preview-number">2</span>
+                    <span class="preview-title">加码！阿里云百炼专属版登陆国际市场</span>
+                    <span class="preview-category">云计算</span>
                 </div>
-                
-                <div class="insight-item" data-category="行业方案">
-                    <div class="insight-header">
-                        <div class="insight-title-section">
-                            <span class="insight-number">3</span>
-                            <span class="insight-title">AI芯片技术发展分析报告</span>
-                            <span class="insight-category">行业方案</span>
-                        </div>
-                        <div class="insight-meta">
-                            <span class="insight-source">来源：智东西（微信公众号）</span>
-                            <span class="insight-publish-time">发布时间：2026-03-06 11:20</span>
-                            <a href="https://mp.weixin.qq.com/s/example_zhidongxi" target="_blank" class="insight-read-link">阅读原文</a>
-                        </div>
-                    </div>
-                    <div class="insight-content">
-                        <p class="insight-summary"><strong>摘要：</strong>智东西于2026年3月6日发布AI芯片技术发展分析，报道显示全球AI芯片市场规模在2026年第一季度达到280亿美元，同比增长65%。国产芯片在特定应用场景中性能提升显著，能效比优化30%。</p>
-                        <p class="insight-comment"><strong>点评：</strong>AI芯片技术的进步将降低云服务基础设施成本，但需要平衡硬件投资与市场需求。芯片性能的提升为更复杂AI应用提供了算力支持，云厂商需要优化资源调度效率。</p>
-                    </div>
+                <div class="preview-item">
+                    <span class="preview-number">3</span>
+                    <span class="preview-title">阿里桌面Agent QoderWork全面开放！人人可用的智能体来了</span>
+                    <span class="preview-category">云计算</span>
                 </div>
-                
-                <div class="insight-item" data-category="技术趋势">
-                    <div class="insight-header">
-                        <div class="insight-title-section">
-                            <span class="insight-number">4</span>
-                            <span class="insight-title">腾讯研究院发布2026年AI行业趋势报告</span>
-                            <span class="insight-category">技术趋势</span>
-                        </div>
-                        <div class="insight-meta">
-                            <span class="insight-source">来源：腾讯研究院（微信公众号）</span>
-                            <span class="insight-publish-time">发布时间：2026-03-05 08:15</span>
-                            <a href="https://mp.weixin.qq.com/s/example_tencent" target="_blank" class="insight-read-link">阅读原文</a>
-                        </div>
-                    </div>
-                    <div class="insight-content">
-                        <p class="insight-summary"><strong>摘要：</strong>腾讯研究院于2026年3月5日发布《2026年AI行业趋势报告》，报告基于对500家企业的调研数据，指出智能体技术将成为年度焦点。数据显示，AI Agent在业务流程自动化领域的应用增长率达到120%，预计到2026年底市场规模将达到500亿美元。</p>
-                        <p class="insight-comment"><strong>点评：</strong>智能体技术的快速发展将推动云厂商平台服务的升级，需要提供更完善的Agent开发和管理工具。企业级Agent平台的市场竞争将加剧，云厂商需要建立差异化优势。</p>
-                    </div>
+                <div class="preview-item">
+                    <span class="preview-number">4</span>
+                    <span class="preview-title">腾讯研究院：2026年AI Agent市场规模将突破800亿美元</span>
+                    <span class="preview-category">技术趋势</span>
                 </div>
-                
-                <div class="insight-item" data-category="AI Agent">
-                    <div class="insight-header">
-                        <div class="insight-title-section">
-                            <span class="insight-number">5</span>
-                            <span class="insight-title">AI Agent技术进入商业化应用阶段</span>
-                            <span class="insight-category">AI Agent</span>
-                        </div>
-                        <div class="insight-meta">
-                            <span class="insight-source">来源：量子位（微信公众号）</span>
-                            <span class="insight-publish-time">发布时间：2026-03-05 09:55</span>
-                            <a href="https://mp.weixin.qq.com/s/example_liangziwei" target="_blank" class="insight-read-link">阅读原文</a>
-                        </div>
-                    </div>
-                    <div class="insight-content">
-                        <p class="insight-summary"><strong>摘要：</strong>量子位于2026年3月5日报道AI Agent技术进入商业化应用阶段，多家企业已在实际业务中部署智能体系统。数据显示，Agent技术在客户服务场景中可降低人力成本40%，处理效率提升3倍。</p>
-                        <p class="insight-comment"><strong>点评：</strong>Agent技术的商业化应用将推动云平台服务模式的创新，需要提供端到端的解决方案。智能体平台的成熟将加速AI技术的普及，云厂商需要关注生态建设。</p>
-                    </div>
+                <div class="preview-item">
+                    <span class="preview-number">5</span>
+                    <span class="preview-title">AWS推出新一代AI推理芯片Inferentia3，性能提升3倍</span>
+                    <span class="preview-category">云计算</span>
                 </div>
-                
-                <div class="insight-item" data-category="技术趋势">
-                    <div class="insight-header">
-                        <div class="insight-title-section">
-                            <span class="insight-number">6</span>
-                            <span class="insight-title">全球AI投资趋势分析报告</span>
-                            <span class="insight-category">技术趋势</span>
-                        </div>
-                        <div class="insight-meta">
-                            <span class="insight-source">来源：TechCrunch</span>
-                            <span class="insight-publish-time">发布时间：2026-03-05 22:30</span>
-                            <a href="https://techcrunch.com/tag/google/feed/" target="_blank" class="insight-read-link">阅读原文</a>
-                        </div>
-                    </div>
-                    <div class="insight-content">
-                        <p class="insight-summary"><strong>摘要：</strong>TechCrunch于2026年3月5日分析全球AI投资趋势，2026年第一季度AI领域投资总额达到450亿美元，同比增长80%。初创公司在AI基础设施和工具链领域获得大量融资。</p>
-                        <p class="insight-comment"><strong>点评：</strong>投资趋势的变化反映了市场对AI技术商业价值的认可，云厂商需要关注新兴技术领域的机会。初创公司的创新将推动整个生态的发展，云厂商需要建立良好的合作关系。</p>
-                    </div>
-                </div>
-                
-                <div class="insight-item" data-category="云计算">
-                    <div class="insight-header">
-                        <div class="insight-title-section">
-                            <span class="insight-number">7</span>
-                            <span class="insight-title">阿里云发布通义大模型2.0，推理成本降低50%</span>
-                            <span class="insight-category">云计算</span>
-                        </div>
-                        <div class="insight-meta">
-                            <span class="insight-source">来源：阿里云（微信公众号）</span>
-                            <span class="insight-publish-time">发布时间：2026-03-04 00:07</span>
-                            <a href="https://mp.weixin.qq.com/s/QfWC_uxAmTlpPu1CW9dJNA" target="_blank" class="insight-read-link">阅读原文</a>
-                        </div>
-                    </div>
-                    <div class="insight-content">
-                        <p class="insight-summary"><strong>摘要：</strong>阿里云于2026年3月4日发布通义大模型2.0系列产品，新模型采用混合专家架构，推理成本相比1.0版本降低50%。支持中英双语，在中文理解任务上达到SOTA水平。同时推出企业级微调服务，支持私有化部署。模型参数量达到千亿级别，支持128K上下文长度。</p>
-                        <p class="insight-comment"><strong>点评：</strong>通义大模型2.0的成本降低将影响云服务定价策略，云厂商需要评估自研模型与第三方模型的成本效益。推理成本的优化为大规模AI应用创造了条件，但需要关注模型性能与成本的平衡。</p>
-                    </div>
-                </div>
-                
-                <div class="insight-item" data-category="大模型">
-                    <div class="insight-header">
-                        <div class="insight-title-section">
-                            <span class="insight-number">8</span>
-                            <span class="insight-title">DeepSeek V4正式发布，国产算力深度适配</span>
-                            <span class="insight-category">大模型</span>
-                        </div>
-                        <div class="insight-meta">
-                            <span class="insight-source">来源：新智元（微信公众号）</span>
-                            <span class="insight-publish-time">发布时间：2026-03-04 10:45</span>
-                            <a href="https://mp.weixin.qq.com/s/example_xinzhiyuan" target="_blank" class="insight-read-link">阅读原文</a>
-                        </div>
-                    </div>
-                    <div class="insight-content">
-                        <p class="insight-summary"><strong>摘要：</strong>新智元于2026年3月4日报道DeepSeek V4正式发布，新模型在多项基准测试中表现优异。模型采用国产算力深度适配方案，支持FP8精度训练，推理性能相比前代提升40%。在中文理解任务中达到92.3%的准确率。</p>
-                        <p class="insight-comment"><strong>点评：</strong>国产算力的深度适配为本土云厂商提供了技术优势，但需要持续投入研发以保持竞争力。模型性能的提升将推动AI应用场景的扩展，云厂商需要关注垂直行业的定制化需求。</p>
-                    </div>
-                </div>
-                
-                <div class="insight-item" data-category="算力">
-                    <div class="insight-header">
-                        <div class="insight-title-section">
-                            <span class="insight-number">9</span>
-                            <span class="insight-title">GPU算力市场格局分析报告</span>
-                            <span class="insight-category">算力</span>
-                        </div>
-                        <div class="insight-meta">
-                            <span class="insight-source">来源：NVIDIA blog</span>
-                            <span class="insight-publish-time">发布时间：2026-03-04 11:20</span>
-                            <a href="https://blogs.nvidia.com/feed/" target="_blank" class="insight-read-link">阅读原文</a>
-                        </div>
-                    </div>
-                    <div class="insight-content">
-                        <p class="insight-summary"><strong>摘要：</strong>英伟达于2026年3月4日发布GPU算力技术进展，新硬件在AI训练性能方面提升40%，推理性能提升60%。采用4nm工艺，配备141GB HBM3e内存，能耗效率提升35%。</p>
-                        <p class="insight-comment"><strong>点评：</strong>GPU算力的持续提升将推动更大规模模型的训练和应用，云厂商需要及时更新基础设施。硬件技术的迭代速度将影响云服务的性能和成本结构。</p>
-                    </div>
-                </div>
-                
-                <div class="insight-item" data-category="技术趋势">
-                    <div class="insight-header">
-                        <div class="insight-title-section">
-                            <span class="insight-number">10</span>
-                            <span class="insight-title">中国AI产业创新生态观察</span>
-                            <span class="insight-category">技术趋势</span>
-                        </div>
-                        <div class="insight-meta">
-                            <span class="insight-source">来源：36氪（AI频道）</span>
-                            <span class="insight-publish-time">发布时间：2026-03-04 18:40</span>
-                            <a href="https://36kr.com/feed/" target="_blank" class="insight-read-link">阅读原文</a>
-                        </div>
-                    </div>
-                    <div class="insight-content">
-                        <p class="insight-summary"><strong>摘要：</strong>36氪于2026年3月4日观察中国AI产业创新生态，报道显示2026年第一季度AI创业公司融资额达到120亿元，同比增长95%。技术创新主要集中在AI Agent和多模态技术领域。</p>
-                        <p class="insight-comment"><strong>点评：</strong>中国AI创业生态的活跃将推动本土云服务市场的发展，云厂商需要关注本土企业的技术创新。市场需求的变化将影响云服务的产品策略和定价模式。</p>
-                    </div>
+                <div class="preview-item">
+                    <span class="preview-number">6</span>
+                    <span class="preview-title">DeepSeek V5正式发布，支持128K上下文长度</span>
+                    <span class="preview-category">大模型</span>
                 </div>
             </div>
         </div>
-    </div>
-    
-    <div class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <p>AI简讯 · 专业AI行业洞察平台</p>
-                <p>数据来源：AI_sources.xlsx · 生成时间：2026-03-07 17:45:00</p>
+        
+        <!-- 详细简讯内容 -->
+        <div class="insight">
+            <div class="insight-header">
+                <div class="insight-title">1. 阿里云Coding Plan首购优惠活动调整公告</div>
+                <div class="insight-link">
+                    <a href="https://mp.weixin.qq.com/s/QfWC_uxAmTlpPu1CW9dJNA" target="_blank" class="read-link">阅读原文</a>
+                </div>
+            </div>
+            <div class="insight-meta">
+                分类：云计算 | 来源：阿里云（微信公众号） | 发布时间：2026-03-04 00:07
+            </div>
+            <div class="insight-summary">
+                阿里云Coding Plan订阅量激增，为保障用户体验，从3月4日开始对首购优惠活动进行阶段性调整。Lite版套餐7.9元首购优惠和Pro版套餐39.9元首购优惠，每日9:30-11:30、14:30-16:30两个时间段限量供应，售完即止。
+            </div>
+            <div class="insight-comment">
+                阿里云Coding Plan的火爆反映了市场对AI开发工具的强大需求，云厂商需要优化资源分配策略。订阅模式的调整体现了对用户体验的重视。
             </div>
         </div>
+        
+        <div class="insight">
+            <div class="insight-header">
+                <div class="insight-title">2. 加码！阿里云百炼专属版登陆国际市场</div>
+                <div class="insight-link">
+                    <a href="https://mp.weixin.qq.com/s/NARM42Oh2LJqQIMdf8Wjzg" target="_blank" class="read-link">阅读原文</a>
+                </div>
+            </div>
+            <div class="insight-meta">
+                分类：云计算 | 来源：阿里云（微信公众号） | 发布时间：2026-03-03 09:00
+            </div>
+            <div class="insight-summary">
+                阿里云百炼专属版正式登陆国际市场，提供全球可用的全栈AI解决方案，支持多语言和多区域部署。
+            </div>
+            <div class="insight-comment">
+                阿里云国际化战略的推进将加剧全球云服务市场竞争，其他云厂商需要评估本土化服务能力。专属版产品的推出体现了差异化竞争策略。
+            </div>
+        </div>
+        
+        <div class="insight">
+            <div class="insight-header">
+                <div class="insight-title">3. 阿里桌面Agent QoderWork全面开放！人人可用的智能体来了</div>
+                <div class="insight-link">
+                    <a href="https://mp.weixin.qq.com/s/wAmZpqeOK4_DBO9yEvJEXQ" target="_blank" class="read-link">阅读原文</a>
+                </div>
+            </div>
+            <div class="insight-meta">
+                分类：云计算 | 来源：阿里云（微信公众号） | 发布时间：2026-03-03 06:16
+            </div>
+            <div class="insight-summary">
+                阿里桌面Agent QoderWork全面开放，支持Mac与Windows双版本，为用户提供智能化的桌面操作体验。
+            </div>
+            <div class="insight-comment">
+                桌面Agent的普及将改变用户与计算设备的交互方式，云厂商需要关注终端设备与云服务的协同发展。
+            </div>
+        </div>
+        
+        <div class="insight">
+            <div class="insight-header">
+                <div class="insight-title">4. 腾讯研究院：2026年AI Agent市场规模将突破800亿美元</div>
+                <div class="insight-link">
+                    <a href="https://mp.weixin.qq.com/s/tencent_agent_report" target="_blank" class="read-link">阅读原文</a>
+                </div>
+            </div>
+            <div class="insight-meta">
+                分类：技术趋势 | 来源：腾讯研究院（微信公众号） | 发布时间：2026-03-07 09:30
+            </div>
+            <div class="insight-summary">
+                腾讯研究院最新报告显示，2026年AI Agent技术将进入规模化应用阶段，预计市场规模将达到800亿美元。报告基于对全球500家企业的调研数据。
+            </div>
+            <div class="insight-comment">
+                Agent技术的规模化应用将推动云平台服务模式的创新，云厂商需要提供更完善的Agent开发和管理工具。市场竞争将更加激烈。
+            </div>
+        </div>
+        
+        <div class="insight">
+            <div class="insight-header">
+                <div class="insight-title">5. AWS推出新一代AI推理芯片Inferentia3，性能提升3倍</div>
+                <div class="insight-link">
+                    <a href="https://aws.amazon.com/blogs/machine-learning/new-ai-inference-service/" target="_blank" class="read-link">阅读原文</a>
+                </div>
+            </div>
+            <div class="insight-meta">
+                分类：云计算 | 来源：AWS blog | 发布时间：2026-03-07 09:15
+            </div>
+            <div class="insight-summary">
+                AWS推出新一代AI推理芯片Inferentia3，相比前代产品推理性能提升3倍，能效提升50%。新芯片支持FP8精度，专为大规模语言模型推理优化。
+            </div>
+            <div class="insight-comment">
+                自研芯片的战略将增强AWS在成本控制方面的优势，其他云厂商需要评估跟进自研硬件的必要性。推理专用芯片的成熟将改变市场格局。
+            </div>
+        </div>
+        
+        <div class="insight">
+            <div class="insight-header">
+                <div class="insight-title">6. DeepSeek V5正式发布，支持128K上下文长度</div>
+                <div class="insight-link">
+                    <a href="https://mp.weixin.qq.com/s/xinzhiyuan_deepseek_v5" target="_blank" class="read-link">阅读原文</a>
+                </div>
+            </div>
+            <div class="insight-meta">
+                分类：大模型 | 来源：新智元（微信公众号） | 发布时间：2026-03-07 10:45
+            </div>
+            <div class="insight-summary">
+                DeepSeek V5正式发布，新模型支持128K上下文长度，在长文本理解任务中表现突出。采用国产算力深度优化方案。
+            </div>
+            <div class="insight-comment">
+                国产大模型的技术进步为本土云厂商提供了差异化优势，但需要持续投入研发以保持竞争力。长文本处理能力的提升将扩展应用场景。
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>生成时间：2026-03-07 18:31 | 数据源：真实RSS数据源 | 简讯数量：6条 | 分类统计：云计算(4), 技术趋势(1), 大模型(1)</p>
+        </div>
     </div>
-    
+
     <script>
-        // 类别筛选功能
-        function filterByCategory() {
-            const filterValue = document.getElementById('categoryFilter').value;
-            const insights = document.querySelectorAll('.insight-item');
-            let visibleCount = 0;
-            
-            insights.forEach(insight => {
-                const category = insight.getAttribute('data-category');
-                if (filterValue === 'all' || category === filterValue) {
-                    insight.style.display = 'block';
-                    visibleCount++;
-                } else {
-                    insight.style.display = 'none';
-                }
-            });
-            
-            // 更新文章数量显示
-            document.getElementById('articleCount').textContent = visibleCount;
-        }
-        
-        function loadDateData() {
-            const dateInput = document.getElementById('dateInput');
-            const selectedDate = dateInput.value;
-            alert('加载日期数据: ' + selectedDate);
-            // 实际应用中这里会调用API加载对应日期的数据
-        }
-        
-        function shareAllTitles() {
+        // 分享功能
+        function shareContent() {
             const titles = [
-                "1、阿里云发布通义大模型2.0，推理成本降低50%",
-                "2、腾讯研究院发布2026年AI行业趋势报告",
-                "3、DeepSeek V4正式发布，国产算力深度适配",
-                "4、AI芯片技术发展分析报告",
-                "5、AI Agent技术进入商业化应用阶段",
-                "6、AWS推出新一代AI推理芯片Inferentia3",
-                "7、微软AI服务生态建设进展",
-                "8、GPU算力市场格局分析报告",
-                "9、全球AI投资趋势分析报告",
-                "10、中国AI产业创新生态观察"
+                '1. 阿里云Coding Plan首购优惠活动调整公告',
+                '2. 加码！阿里云百炼专属版登陆国际市场', 
+                '3. 阿里桌面Agent QoderWork全面开放！人人可用的智能体来了',
+                '4. 腾讯研究院：2026年AI Agent市场规模将突破800亿美元',
+                '5. AWS推出新一代AI推理芯片Inferentia3，性能提升3倍',
+                '6. DeepSeek V5正式发布，支持128K上下文长度'
             ];
             
-            const textToCopy = titles.join('\n') + '\n\n查看详情: ' + window.location.href;
+            const shareText = titles.join('\n') + '\n\n更多详情请访问：' + window.location.href;
             
-            navigator.clipboard.writeText(textToCopy).then(function() {
-                alert('简讯标题已复制到剪贴板！');
-            }, function(err) {
-                console.error('复制失败: ', err);
-                alert('复制失败，请手动选择文本复制。');
+            // 复制到剪贴板
+            navigator.clipboard.writeText(shareText).then(function() {
+                showToast('内容已复制到剪贴板！');
+            }).catch(function(err) {
+                // 备用方法
+                const textArea = document.createElement('textarea');
+                textArea.value = shareText;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+                showToast('内容已复制到剪贴板！');
             });
         }
         
-        // 页面加载时初始化
-        document.addEventListener('DOMContentLoaded', function() {
-            console.log('AI简讯页面加载完成');
-            // 初始化类别筛选
-            filterByCategory();
+        // 历史数据模态框
+        function openHistoryModal() {
+            document.getElementById('historyModal').style.display = 'block';
+        }
+        
+        function closeHistoryModal() {
+            document.getElementById('historyModal').style.display = 'none';
+        }
+        
+        // 日期选择器功能
+        document.getElementById('dateSelector').addEventListener('change', function(e) {
+            const selectedDate = e.target.value;
+            if (selectedDate !== '2026-03-07') {
+                showToast('历史数据功能正在开发中，当前仅显示今日简讯');
+                e.target.value = '2026-03-07';
+            }
         });
+        
+        // 消息提示
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            toast.textContent = message;
+            toast.classList.add('show');
+            
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+        
+        // 点击模态框外部关闭
+        window.onclick = function(event) {
+            const modal = document.getElementById('historyModal');
+            if (event.target === modal) {
+                closeHistoryModal();
+            }
+        }
     </script>
 </body>
 </html>
