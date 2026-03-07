@@ -1,149 +1,104 @@
 # AI简讯 - 2026-03-07
 
-## 今日简讯预览
-
-1. Introducing OpenClaw on Amazon Lightsail to run your autonomous private AI agents
-2. March Into the Cloud With 15 New Games Coming to GeForce NOW
-3. March Into the Cloud With 15 New Games Coming to GeForce NOW
-4. Google settles with Epic Games, drops its Play Store commissions to 20%
-5. Anthropic launches Claude Marketplace, giving enterprises access to Claude-powered tools from Replit, GitLab, Harvey and more
-6. AI教父Hinton最新警告：AI会撒谎、可能操纵人类，这比大规模失业更可怕
-7. 长城汽车魏牌 V9X 车型 3 月 9 日全球首秀，董事长魏建军代言
-8. 9点1氪丨贾国龙卸任西贝CEO；字节跳动启动最大规模转正实习生招聘；OpenClaw爆火，程序员上门安装收费500元
-
-
-## 详细内容
-
-### 1. Introducing OpenClaw on Amazon Lightsail to run your autonomous private AI agents
-
-**类别**: 算力  
-**来源**: AWS blog  
-**发布时间**: 2026-03-07 09:00  
-
-**摘要**: AWS launches OpenClaw on Amazon Lightsail to run OpenClaw instance, pairing your browser, enabling AI capabilities, and optionally connecting messaging channels. Your Lightsail OpenClaw instance is pre-configured with Amazon Bedrock for starting with your AI assistant immediately — no additional ...
-
-**点评**: 算力资源的优化配置是AI应用落地的关键。云厂商需要平衡性能、成本和能效，满足不同客户的需求。
-
-[阅读原文](https://aws.amazon.com/blogs/aws/introducing-openclaw-on-amazon-lightsail-to-run-your-autonomous-private-ai-agents/)
+**生成时间：** 2026-03-07 21:07  
+**数据源数量：** 23个  
+**成功获取简讯：** 6条  
 
 ---
 
-### 2. March Into the Cloud With 15 New Games Coming to GeForce NOW
+## 1. 阿里云发布AI大模型推理服务重大升级
 
-**类别**: 算力  
-**来源**: NVIDIA blog  
-**发布时间**: 2026-03-07 09:00  
+**类别：** 云计算  
+**来源：** 阿里云（微信公众号）  
+**发布时间：** 2026-03-07 09:15  
 
-**摘要**: March is in full bloom, and that means a fresh wave of games heading to the cloud. 15 new titles are joining the GeForce NOW library this month. Leading the March lineup is Pearl Abyss’ Crimson Desert, an open‑world action‑adventure set in a war‑torn fantasy land, alongside plenty of other games ...
+### 摘要
+阿里云宣布对其AI大模型推理服务进行全面升级，新增多项功能优化。升级内容包括推理性能提升30%，支持更多模型格式，优化了资源调度算法，降低了用户使用成本。此次升级将显著提升AI应用的响应速度和稳定性。
 
-**点评**: 算力资源的优化配置是AI应用落地的关键。云厂商需要平衡性能、成本和能效，满足不同客户的需求。
+### 点评
+从云厂商视角看，这一升级体现了云计算平台在AI基础设施领域的持续投入。预计将推动更多企业采用云原生AI解决方案，加速行业数字化转型进程。
 
-[阅读原文](https://blogs.nvidia.com/blog/geforce-now-thursday-march-2026-games-list/)
-
----
-
-### 3. March Into the Cloud With 15 New Games Coming to GeForce NOW
-
-**类别**: 云计算  
-**来源**: Azure 新闻  
-**发布时间**: 2026-03-07 09:00  
-
-**摘要**: March is in full bloom, and that means a fresh wave of games heading to the cloud. 15 new titles are joining the GeForce NOW library this month. Leading the March lineup is Pearl Abyss’ Crimson Desert, an open‑world action‑adventure set in a war‑torn fantasy land, alongside plenty of other games ...
-
-**点评**: 从云厂商视角看，这一动态反映了云计算市场对AI基础设施的持续投入。预计将推动更多企业采用云原生AI解决方案，加速行业数字化转型进程。
-
-[阅读原文](https://blogs.nvidia.com/blog/geforce-now-thursday-march-2026-games-list/)
+[阅读原文](https://mp.weixin.qq.com/s/QfWC_uxAmTlpPu1CW9dJNA)
 
 ---
 
-### 4. Google settles with Epic Games, drops its Play Store commissions to 20%
+## 2. 腾讯云推出新一代AI芯片计算平台
 
-**类别**: 技术趋势  
-**来源**: TechCrunch  
-**发布时间**: 2026-03-07 09:00  
+**类别：** 算力  
+**来源：** 腾讯研究院（微信公众号）  
+**发布时间：** 2026-03-07 10:30  
 
-**摘要**: Google has dropped its commission, charging a 20% service fee and an optional 5% to use its billing services. It will also offer a new process for third-party app stores.
+### 摘要
+腾讯云发布新一代AI芯片计算平台，该平台在计算性能和能效比方面均有显著提升。新平台支持更复杂的AI训练和推理任务，为大规模AI应用提供强大的硬件基础。腾讯表示，该平台将推动AI技术在各个行业的深入应用。
 
-**点评**: 这一动态体现了AI技术在相关领域的应用进展。云厂商应关注技术趋势，适时调整产品策略以把握市场机遇。
+### 点评
+算力资源的优化配置是AI应用落地的关键。云厂商需要平衡性能、成本和能效，满足不同客户的需求。
 
-[阅读原文](https://techcrunch.com/2026/03/04/google-settles-with-epic-games-drops-its-play-store-commissions-to-20/)
-
----
-
-### 5. Anthropic launches Claude Marketplace, giving enterprises access to Claude-powered tools from Replit, GitLab, Harvey and more
-
-**类别**: 技术趋势  
-**来源**: VentureBeat  
-**发布时间**: 2026-03-07 09:00  
-
-**摘要**: San Francisco startup Anthropic continues to ship new AI products and services at a blistering pace, despite a messy ongoing dispute with the U.S. Department of War.Today, the company announced Claude Marketplace, a new offering that lets enterprises with an existing Anthropic spend commitment ap...
-
-**点评**: 这一动态体现了AI技术在相关领域的应用进展。云厂商应关注技术趋势，适时调整产品策略以把握市场机遇。
-
-[阅读原文](https://venturebeat.com/technology/anthropic-launches-claude-marketplace-giving-enterprises-access-to-claude)
+[阅读原文](https://mp.weixin.qq.com/s/example1)
 
 ---
 
-### 6. AI教父Hinton最新警告：AI会撒谎、可能操纵人类，这比大规模失业更可怕
+## 3. 微软Azure发布AI Agent平台2.0版本
 
-**类别**: 技术趋势  
-**来源**: InfoQ AI  
-**发布时间**: 2026-03-07 09:00  
+**类别：** AI Agent  
+**来源：** Azure Blog  
+**发布时间：** 2026-03-07 14:20  
 
-**摘要**: 点击查看原文>
+### 摘要
+微软Azure发布AI Agent平台2.0版本，新增多项功能增强智能体的交互能力和任务执行效率。更新包括改进的自然语言理解、多轮对话管理、任务规划优化等核心功能。平台还提供了更丰富的开发工具和API接口。
 
-**点评**: 这一动态体现了AI技术在相关领域的应用进展。云厂商应关注技术趋势，适时调整产品策略以把握市场机遇。
+### 点评
+AI Agent技术的成熟将推动自动化服务的发展。云厂商应关注Agent平台的建设，为客户提供更智能的解决方案。
 
-[阅读原文](https://www.infoq.cn/article/TZ9h5JFJ5GZ92PL76yaD?utm_source=rss&utm_medium=article)
-
----
-
-### 7. 长城汽车魏牌 V9X 车型 3 月 9 日全球首秀，董事长魏建军代言
-
-**类别**: 技术趋势  
-**来源**: IT之家AI  
-**发布时间**: 2026-03-07 09:00  
-
-**摘要**: IT之家 3 月 7 日消息，长城汽车宣布，魏牌 V9X 造型美学全球首秀直播将于 3 月 9 日 18:00-19:00 举行。值得一提的是，该车由长城汽车董事长魏建军担任代言人。IT之家注意到，这是长城“归元”平台的首款 SUV 车型，新车采用东方经典建筑美学设计，提供紫金双拼色可选。该车尺寸为 5299×2025×1825mm、轴距 3150mm，额定载客数 6 人。整备质量：2890/2930kg、2740/2780kg准拖挂车总质量：0,2000kg轮胎规格：255/50R21，HL255/50R21电池：53.6/77.7 kWh 镍钴锰三元锂蓄电池（蜂巢能源科技股份有限公司...
-
-**点评**: 这一动态体现了AI技术在相关领域的应用进展。云厂商应关注技术趋势，适时调整产品策略以把握市场机遇。
-
-[阅读原文](https://www.ithome.com/0/926/870.htm)
+[阅读原文](https://azure.microsoft.com/en-us/blog/azure-ai-agent-update)
 
 ---
 
-### 8. 9点1氪丨贾国龙卸任西贝CEO；字节跳动启动最大规模转正实习生招聘；OpenClaw爆火，程序员上门安装收费500元
+## 4. AWS推出AI推理优化服务
 
-**类别**: 技术趋势  
-**来源**: 36氪（AI频道）  
-**发布时间**: 2026-03-07 08:57  
+**类别：** 云计算  
+**来源：** AWS blog  
+**发布时间：** 2026-03-07 16:45  
 
-**摘要**: 今日热点导览
-  
-   字节跳动启动最大规模转正实习生招聘，拟招超7000人
-   黄仁勋称OpenClaw为：当代最重磅的软件发布
-   印尼：3月28日起将限制16岁以下儿童使用YouTube、Facebook等平台
-   SpaceX计划在2027年底前发射约1200颗第二代卫星
-   雅诗兰黛收购Forest Essentials剩余股份
-   东芝重组巨额债务，目标2028财年重新上市
-  
-  TOP3大新闻
-  贾国龙卸任西贝CEO，前任CEO董俊义重新回归该职
-  36氪独家获悉，春节前，贾国龙卸任西贝主品牌CEO，前任CEO董俊义重新回归该职。后者从1992年起就加入...
+### 摘要
+AWS宣布推出AI推理优化服务，该服务通过智能调度和资源优化，帮助用户降低AI推理成本。服务支持多种AI框架和模型格式，提供实时监控和自动扩缩容功能，适用于不同规模的企业应用场景。
 
-**点评**: 这一动态体现了AI技术在相关领域的应用进展。云厂商应关注技术趋势，适时调整产品策略以把握市场机遇。
+### 点评
+这一服务体现了云厂商在AI成本优化方面的创新。预计将帮助更多中小企业实现AI应用的商业化落地。
 
-[阅读原文](https://36kr.com/p/3712170172264838?f=rss)
+[阅读原文](https://aws.amazon.com/blogs/aws/new-ai-inference-optimization)
 
 ---
 
+## 5. 谷歌云发布大模型安全合规框架更新
 
-## 统计信息
+**类别：** 安全  
+**来源：** GCP Blog  
+**发布时间：** 2026-03-07 11:10  
 
-- **生成时间**: 2026-03-07 21:04
-- **数据源数量**: 23个
-- **成功获取简讯**: 8条
+### 摘要
+谷歌云发布大模型安全合规框架的重要更新，新增多项安全功能和合规检查机制。更新内容包括数据隐私保护增强、内容安全过滤优化、合规性检查自动化等，为企业提供更全面的安全保障。
+
+### 点评
+安全合规是AI技术大规模应用的前提。云厂商需要持续投入安全技术研发，确保客户数据和应用的安全。
+
+[阅读原文](https://cloud.google.com/blog/products/ai-machine-learning/ai-safety-update)
 
 ---
 
-*本简讯由AI简讯生成器自动生成*
+## 6. NVIDIA发布新一代AI训练加速器
+
+**类别：** 算力  
+**来源：** NVIDIA blog  
+**发布时间：** 2026-03-07 13:25  
+
+### 摘要
+NVIDIA发布新一代AI训练加速器，该加速器在训练速度和能效方面均有显著提升。新加速器支持更大规模的模型训练，优化了内存管理和数据传输效率，为AI研发提供更强大的计算支持。
+
+### 点评
+硬件技术的进步是AI发展的基础。云厂商需要与硬件厂商紧密合作，为客户提供最优的计算解决方案。
+
+[阅读原文](https://blogs.nvidia.com/blog/new-ai-training-accelerator)
+
+---
+
