@@ -1,24 +1,2 @@
-﻿name,type,rss_url,home_url,category,priority,enabled,获取简讯数,获取结果,生成时间,最新简讯发布时间
-阿里云（微信公众号）,rss,https://wechatrss.waytomaster.com/api/rss/MzA4NjI4MzM4MQ==?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIzMyIsInR5cGUiOiJyc3MifQ.jD9i4ptS7kVD4xAlCly_pQN4E2DMnk1h0brfzOJA1lM,,云计算,10,1,0,未获取到今日简讯,2026-03-08 23:03:00,
-腾讯研究院（微信公众号）,rss,https://wechatrss.waytomaster.com/api/rss/MjM5OTE0ODA2MQ==,,大模型,10,1,0,未获取到今日简讯,2026-03-08 23:03:00,
-新智元（微信公众号）,rss,https://wechatrss.waytomaster.com/api/rss/MzI3MTA0MTk1MA==,,技术趋势,10,1,0,未获取到今日简讯,2026-03-08 23:03:00,
-智东西（微信公众号）,rss,https://wechatrss.waytomaster.com/api/rss/MzA4MTQ4NjQzMw==,,技术趋势,10,1,0,未获取到今日简讯,2026-03-08 23:03:00,
-量子位（微信公众号）,rss,https://wechatrss.waytomaster.com/api/rss/MzIzNjc1NzUzMw==,,技术趋势,10,1,0,未获取到今日简讯,2026-03-08 23:03:00,
-云头条（微信公众号）,rss,https://wechatrss.waytomaster.com/api/rss/MzI4OTc4MzI5OA==,,云计算,10,1,0,未获取到今日简讯,2026-03-08 23:03:00,
-AWS blog,rss,https://aws.amazon.com/blogs/aws/feed/,https://aws.amazon.com/blogs/,算力,10,1,1,成功获取今日简讯,2026-03-08 23:03:00,2026年3月4日 00:07
-Azure Blog,rss,https://azure.microsoft.com/en-us/blog/feed/,https://azure.microsoft.com/en-us/blog/,AI Agent,10,1,0,未获取到今日简讯,2026-03-08 23:03:00,
-NVIDIA blog,rss,https://blogs.nvidia.com/feed/,https://blogs.nvidia.com/,算力,10,1,1,成功获取今日简讯,2026-03-08 23:03:00,2026年3月4日 00:07
-Azure 新闻,rss,https://nvidianews.nvidia.com/rss.xml,https://azure.microsoft.com/en-us/blog/content-type/announcements/,云计算,10,1,1,成功获取今日简讯,2026-03-08 23:03:00,2026年3月4日 00:07
-GCP Blog,rss,,https://cloud.google.com/blog,安全,10,1,0,未获取到今日简讯,2026-03-08 23:03:00,
-AWS新闻,,,https://press.aboutamazon.com/aws,云计算,10,1,0,未获取到今日简讯,2026-03-08 23:03:00,
-GCP新闻,,,https://www.googlecloudpresscorner.com/press-releases,云计算,10,1,0,未获取到今日简讯,2026-03-08 23:03:00,
-NVIDIA新闻,,,https://nvidianews.nvidia.com/,算力,10,1,0,未获取到今日简讯,2026-03-08 23:03:00,
-数据中心新闻,,,https://www.datacenterdynamics.com/en/,算力,10,1,0,未获取到今日简讯,2026-03-08 23:03:00,
-全球数据中心动态,,,https://www.datacenterdynamics.com/en/,算力,10,1,0,未获取到今日简讯,2026-03-08 23:03:00,
-TechCrunch,rss,https://techcrunch.com/tag/google/feed/,https://techcrunch.com/,技术趋势,1,1,1,成功获取今日简讯,2026-03-08 23:03:00,2026年3月4日 00:07
-VentureBeat,rss,https://venturebeat.com/feed,https://venturebeat.com/,技术趋势,1,1,1,成功获取今日简讯,2026-03-08 23:03:00,2026年3月4日 00:07
-The Verge,rss,https://www.theverge.com/rss/index.xml,https://www.theverge.com/,技术趋势,1,1,0,未获取到今日简讯,2026-03-08 23:03:00,
-InfoQ AI,rss,https://www.infoq.cn/feed,https://www.infoq.cn/,技术趋势,1,1,1,成功获取今日简讯,2026-03-08 23:03:00,2026年3月4日 00:07
-36氪（AI频道）,rss,https://36kr.com/feed,https://36kr.com/,技术趋势,1,1,1,成功获取今日简讯,2026-03-08 23:03:00,2026年3月4日 00:07
-IT之家AI,rss,https://www.ithome.com/rss/,https://www.ithome.com/,技术趋势,1,1,1,成功获取今日简讯,2026-03-08 23:03:00,2026年3月4日 00:07
-阿里云开发者（微信公众号）,rss,https://wechat2rss.xlab.app/feed/c74ed6db00cfbf16f2a048a165b4453f982681f0.xml,,云计算,1,1,0,未获取到今日简讯,2026-03-08 23:03:00,
+﻿name,type,rss_url,home_url,category,priority,enabled,获取简讯数,获取结果,生成时间
+近期数据源,综合,,,综合,10,1,6,成功获取今日简讯,2026-03-09 00:34
