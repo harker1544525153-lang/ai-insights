@@ -1,0 +1,39 @@
+======================================== 
+AI News Scheduler Started 
+Start time: 2026/03/08 周日 22:27:11.94 
+Log file: C:\Users\h604658591\Demo2\logs\scheduler_20260308_2227.log 
+======================================== 
+Checking Python environment... 
+Python 3.13.12
+[OK] Python check passed 
+Checking Git environment... 
+git version 2.53.0.windows.1
+[OK] Git check passed 
+Generating latest news... 
+开始生成修复版今日简讯...
+result/index.html生成完成（修复版样式）
+result/index.html已复制到根目录
+Markdown文件生成完成
+Traceback (most recent call last):
+  File "C:\Users\h604658591\Demo2\generate_fixed_news.py", line 690, in <module>
+    generate_fixed_news()
+    ~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\h604658591\Demo2\generate_fixed_news.py", line 91, in generate_fixed_news
+    update_resultai_file(today_date, current_time, len(todays_insights))
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\h604658591\Demo2\generate_fixed_news.py", line 670, in update_resultai_file
+    fieldnames = reader.fieldnames
+                 ^^^^^^^^^^^^^^^^^
+  File "C:\Users\h604658591\AppData\Local\Programs\Python\Python313\Lib\csv.py", line 164, in fieldnames
+    self._fieldnames = next(self.reader)
+                       ~~~~^^^^^^^^^^^^^
+  File "<frozen codecs>", line 325, in decode
+  File "C:\Users\h604658591\AppData\Local\Programs\Python\Python313\Lib\encodings\utf_8_sig.py", line 69, in _buffer_decode
+    return codecs.utf_8_decode(input, errors, final)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+UnicodeDecodeError: 'utf-8' codec can't decode byte 0xbb in position 53: invalid start byte
+ERROR: News generation failed 
+======================================== 
+AI News Scheduler Failed! 
+Error time: 2026/03/08 周日 22:27:12.17 
+======================================== 

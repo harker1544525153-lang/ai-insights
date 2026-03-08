@@ -27,3 +27,19 @@ Markdown文件生成完成
      - source/resultAI.csv
 [OK] News generation completed 
 Committing changes to Git... 
+warning: in the working copy of 'logs/scheduler_20260308_2213.log', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'logs/scheduler_20260308_2215.log', LF will be replaced by CRLF the next time Git touches it
+[main 0b0d5be] Auto update AI news: 2026-03-08 22:15
+ 6 files changed, 96 insertions(+), 26 deletions(-)
+ create mode 100644 logs/scheduler_20260308_2215.log
+[OK] Git commit completed 
+Pushing to GitHub... 
+To github.com:harker1544525153-lang/ai-insights.git
+   231e60c..0b0d5be  main -> main
+[OK] GitHub push completed 
+Cleaning old log files... 
+错误: 用指定的搜索标准没有找到文件。
+======================================== 
+AI News Scheduler Completed Successfully! 
+End time: 2026/03/08 周日 22:15:43.35 
+======================================== 
