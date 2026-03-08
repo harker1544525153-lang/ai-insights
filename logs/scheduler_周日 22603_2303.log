@@ -27,3 +27,32 @@ Markdown文件生成完成
      - source/resultAI.csv
 [OK] News generation completed 
 Committing changes to Git... 
+warning: in the working copy of 'logs/scheduler_20260308_2215.log', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'fix_rss_url_direct.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'fix_rss_url_robust.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'fix_rss_url_simple_final.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'fix_rss_url_token.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'generate_fixed_news_corrected.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'logs/scheduler_20260308_2227.log', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'logs/scheduler_鍛ㄦ棩 22603_2303.log', LF will be replaced by CRLF the next time Git touches it
+[main 02fbfdd] Auto update AI news: 鍛ㄦ棩 2-26-03 23:03
+ 13 files changed, 1118 insertions(+), 26 deletions(-)
+ create mode 100644 fix_rss_url_direct.py
+ create mode 100644 fix_rss_url_robust.py
+ create mode 100644 fix_rss_url_simple_final.py
+ create mode 100644 fix_rss_url_token.py
+ create mode 100644 generate_fixed_news_corrected.py
+ create mode 100644 logs/scheduler_20260308_2227.log
+ create mode 100644 "logs/scheduler_\345\221\250\346\227\245 22603_2303.log"
+ create mode 100644 source/~$AI_sources.xlsx
+[OK] Git commit completed 
+Pushing to GitHub... 
+To github.com:harker1544525153-lang/ai-insights.git
+   0b0d5be..02fbfdd  main -> main
+[OK] GitHub push completed 
+Cleaning old log files... 
+ERROR: No files found with the specified search criteria.
+======================================== 
+AI News Scheduler Completed Successfully! 
+End time: 鍛ㄦ棩 2026/03/08 23:03:50.68 
+======================================== 
