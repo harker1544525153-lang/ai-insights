@@ -5,56 +5,413 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI简讯 - 2026-03-08</title>
     <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
+        * {
             margin: 0;
             padding: 0;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
+            box-sizing: border-box;
         }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.4;
+            background: #f8f9fa;
+            color: #333;
+        }
+        
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 15px;
         }
-        .header {
-            text-align: center;
-            color: white;
-            margin-bottom: 30px;
-        }
-        .insight-card {
+        
+        /* 导航栏 */
+        .navbar {
             background: white;
-            border-radius: 10px;
-            padding: 20px;
-            margin-bottom: 20px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            padding: 12px 20px;
+            border-bottom: 1px solid #e9ecef;
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .nav-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #495057;
+        }
+        
+        .nav-date {
+            font-size: 0.9rem;
+            color: #6c757d;
+        }
+        
+        /* 控制面板 */
+        .control-panel {
+            background: white;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 15px;
+            border: 1px solid #e9ecef;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .date-selector {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .date-selector select {
+            padding: 6px 10px;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+        
+        .stats {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 0.9rem;
+        }
+        
+        .stat-item {
+            background: #f8f9fa;
+            padding: 4px 8px;
+            border-radius: 4px;
+            border: 1px solid #e9ecef;
+        }
+        
+        .share-btn {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.85rem;
+        }
+        
+        .share-btn:hover {
+            background: #0056b3;
+        }
+        
+        /* 今日简讯预览 */
+        .preview-section {
+            background: white;
+            padding: 12px 15px;
+            border-radius: 6px;
+            margin-bottom: 15px;
+            border: 1px solid #e9ecef;
+            max-height: 120px;
+            overflow-y: auto;
+        }
+        
+        .preview-section h3 {
+            font-size: 1rem;
+            margin-bottom: 8px;
+            color: #495057;
+            border-bottom: 1px solid #f8f9fa;
+            padding-bottom: 5px;
+        }
+        
+        .preview-list {
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+        }
+        
+        .preview-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.85rem;
+            padding: 2px 0;
+        }
+        
+        .preview-num {
+            background: #6c757d;
+            color: white;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+        }
+        
+        .preview-title {
+            flex: 1;
+            color: #495057;
+        }
+        
+        /* 简讯列表 */
+        .insights-section {
+            background: white;
+            border-radius: 6px;
+            border: 1px solid #e9ecef;
+        }
+        
+        .insight-row {
+            display: flex;
+            align-items: center;
+            padding: 10px 15px;
+            border-bottom: 1px solid #f8f9fa;
+            transition: background 0.2s;
+            cursor: pointer;
+        }
+        
+        .insight-row:hover {
+            background: #f8f9fa;
+        }
+        
+        .insight-num {
+            width: 30px;
+            font-weight: 600;
+            color: #495057;
+            font-size: 0.9rem;
+        }
+        
+        .insight-title {
+            flex: 1;
+            font-weight: 500;
+            color: #495057;
+            font-size: 0.95rem;
+        }
+        
+        .insight-category {
+            background: #e9ecef;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            color: #6c757d;
+            margin-right: 10px;
+        }
+        
+        .insight-source {
+            font-size: 0.8rem;
+            color: #6c757d;
+            margin-right: 15px;
+        }
+        
+        .read-more {
+            font-size: 0.8rem;
+            color: #007bff;
+            text-decoration: none;
+        }
+        
+        .read-more:hover {
+            text-decoration: underline;
+        }
+        
+        /* 详细内容 */
+        .insight-detail {
+            background: #f8f9fa;
+            padding: 15px;
+            border-top: 1px solid #e9ecef;
+            display: none;
+        }
+        
+        .insight-detail.active {
+            display: block;
+        }
+        
+        .detail-content p {
+            margin-bottom: 8px;
+            line-height: 1.5;
+            font-size: 0.9rem;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 15px;
+            color: #6c757d;
+            font-size: 0.85rem;
+            margin-top: 20px;
+            border-top: 1px solid #e9ecef;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .control-panel {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .date-selector {
+                justify-content: space-between;
+            }
+            
+            .stats {
+                justify-content: center;
+            }
+            
+            .insight-row {
+                flex-wrap: wrap;
+                gap: 5px;
+            }
+            
+            .insight-title {
+                min-width: 100%;
+                order: 1;
+            }
+            
+            .insight-category {
+                order: 2;
+            }
+            
+            .insight-source {
+                order: 3;
+            }
+            
+            .read-more {
+                order: 4;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="header">
-            <h1>AI简讯 - 2026-03-08</h1>
-            <p>生成时间: 2026-03-08 23:41</p>
+        <!-- 导航栏 -->
+        <div class="navbar">
+            <div class="nav-title">AI简讯</div>
+            <div class="nav-date">2026-03-08</div>
         </div>
         
-        
-        <div class="insight-card">
-            <h3>微软Azure发布AI Agent平台2.0版本</h3>
-            <p><strong>类别:</strong> AI Agent | <strong>来源:</strong> Azure Blog | <strong>发布时间:</strong> 2026年3月6日 09:15</p>
-            <p><strong>摘要:</strong> 微软Azure发布AI Agent平台2.0版本，新增多项功能增强智能体的交互能力和任务执行效率。更新包括改进的自然语言理解、多轮对话管理、任务规划优化等核心功能。平台还提供了更丰富的开发工具和API接口。</p>
-            <p><strong>点评:</strong> AI Agent技术的成熟将推动自动化服务的发展。云厂商应关注Agent平台的建设，为客户提供更智能的解决方案。</p>
-            <p><a href="https://azure.microsoft.com/en-us/blog/azure-ai-agent-update" target="_blank">阅读原文</a></p>
+        <!-- 控制面板 -->
+        <div class="control-panel">
+            <div class="date-selector">
+                <select id="dateSelect">
+                    <option value="2026-03-08">今日简讯</option>
+                    <option value="2026-03-07">2026-03-07</option>
+                    <option value="2026-03-06">2026-03-06</option>
+                </select>
+                <div class="stats">
+                    <div class="stat-item">文章数：2</div>
+                    <select id="categoryFilter">
+                        <option value="">所有分类</option>
+                        <option value="AI Agent">AI Agent</option>
+<option value="云计算">云计算</option>
+                    </select>
+                </div>
+            </div>
+            <button class="share-btn" onclick="shareAllTitles()">分享</button>
         </div>
+        
+        <!-- 今日简讯预览 -->
+        <div class="preview-section">
+            <h3>今日简讯预览</h3>
+            <div class="preview-list">
+                
+                <div class="preview-item">
+                    <div class="preview-num">1</div>
+                    <div class="preview-title">微软Azure发布AI Agent平台2.0版本</div>
+                </div>
 
-        <div class="insight-card">
-            <h3>AWS推出AI推理优化服务</h3>
-            <p><strong>类别:</strong> 云计算 | <strong>来源:</strong> AWS blog | <strong>发布时间:</strong> 2026年3月6日 16:45</p>
-            <p><strong>摘要:</strong> AWS宣布推出AI推理优化服务，该服务通过智能调度和资源优化，帮助用户降低AI推理成本。服务支持多种AI框架和模型格式，提供实时监控和自动扩缩容功能，适用于不同规模的企业应用场景。</p>
-            <p><strong>点评:</strong> 这一服务体现了云厂商在AI成本优化方面的创新。预计将帮助更多中小企业实现AI应用的商业化落地。</p>
-            <p><a href="https://aws.amazon.com/blogs/aws/new-ai-inference-optimization" target="_blank">阅读原文</a></p>
+                <div class="preview-item">
+                    <div class="preview-num">2</div>
+                    <div class="preview-title">AWS推出AI推理优化服务</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 简讯列表 -->
+        <div class="insights-section">
+            
+            <div class="insight-row" onclick="toggleDetail(0)">
+                <div class="insight-num">1</div>
+                <div class="insight-title">微软Azure发布AI Agent平台2.0版本</div>
+                <div class="insight-category">AI Agent</div>
+                <div class="insight-source">Azure Blog</div>
+                <a href="https://azure.microsoft.com/en-us/blog/azure-ai-agent-update" class="read-more" target="_blank">阅读原文</a>
+            </div>
+            <div class="insight-detail" id="detail-0">
+                <div class="detail-content">
+                    <p><strong>发布时间：</strong>2026年3月6日 09:15</p>
+                    <p><strong>摘要：</strong>微软Azure发布AI Agent平台2.0版本，新增多项功能增强智能体的交互能力和任务执行效率。更新包括改进的自然语言理解、多轮对话管理、任务规划优化等核心功能。平台还提供了更丰富的开发工具和API接口。  AI Agent技术的成熟将推动自动化服务的发展。云厂商应关注Agent平台的建设，为客户提供更智能的解决方案。  </p>
+                    <p><strong>点评：</strong></p>
+                </div>
+            </div>
+
+            <div class="insight-row" onclick="toggleDetail(1)">
+                <div class="insight-num">2</div>
+                <div class="insight-title">AWS推出AI推理优化服务</div>
+                <div class="insight-category">云计算</div>
+                <div class="insight-source">AWS blog</div>
+                <a href="https://aws.amazon.com/blogs/aws/new-ai-inference-optimization" class="read-more" target="_blank">阅读原文</a>
+            </div>
+            <div class="insight-detail" id="detail-1">
+                <div class="detail-content">
+                    <p><strong>发布时间：</strong>2026年3月6日 16:45</p>
+                    <p><strong>摘要：</strong>AWS宣布推出AI推理优化服务，该服务通过智能调度和资源优化，帮助用户降低AI推理成本。服务支持多种AI框架和模型格式，提供实时监控和自动扩缩容功能，适用于不同规模的企业应用场景。  这一服务体现了云厂商在AI成本优化方面的创新。预计将帮助更多中小企业实现AI应用的商业化落地。  </p>
+                    <p><strong>点评：</strong></p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>最近更新：2026-03-08 23:42</p>
         </div>
     </div>
+    
+    <script>
+        // 切换详细内容显示
+        function toggleDetail(index) {
+            const detail = document.getElementById('detail-' + index);
+            detail.classList.toggle('active');
+        }
+        
+        // 分享所有标题
+        function shareAllTitles() {
+            const titles = document.querySelectorAll('.insight-title');
+            let titleText = '';
+            titles.forEach(function(title, index) {
+                titleText += (index + 1) + '. ' + title.textContent + '
+';
+            });
+            
+            const shareText = '今日AI简讯标题预览：
+' + titleText + '
+更多详见：https://harker1544525153-lang.github.io/ai-insights/';
+            
+            // 复制到剪贴板
+            navigator.clipboard.writeText(shareText).then(function() {
+                alert('标题已复制到剪贴板！');
+            }, function(err) {
+                console.error('复制失败: ', err);
+            });
+        }
+        
+        // 分类筛选
+        document.getElementById('categoryFilter').addEventListener('change', function() {
+            const selectedCategory = this.value;
+            const rows = document.querySelectorAll('.insight-row');
+            
+            rows.forEach(row => {
+                const category = row.querySelector('.insight-category').textContent;
+                if (selectedCategory === '' || category === selectedCategory) {
+                    row.style.display = 'flex';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+        });
+        
+        // 日期选择
+        document.getElementById('dateSelect').addEventListener('change', function() {
+            const selectedDate = this.value;
+            // 这里可以添加日期筛选逻辑
+            alert('日期筛选功能待实现，当前显示：' + selectedDate);
+        });
+    </script>
 </body>
 </html>
