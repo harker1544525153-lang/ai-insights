@@ -27,3 +27,44 @@ Markdown文件生成完成
      - source/resultAI.csv
 [OK] News generation completed 
 Committing changes to Git... 
+warning: in the working copy of 'generate_fixed_news.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'scheduler.bat', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'fix_window_issue.bat', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'logs/scheduler_20260308_2137.log', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'logs/scheduler_20260308_2141.log', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'logs/scheduler_20260308_2146.log', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'logs/scheduler_20260308_2148.log', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'logs/scheduler_20260308_2213.log', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'scheduler_fixed_path.bat', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'setup_scheduled_task.ps1', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'test_all_bat_files.bat', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'test_scheduler.ps1', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'test_scheduler_simple.ps1', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '瀹氭椂浠诲姟璁剧疆璇存槑.md', LF will be replaced by CRLF the next time Git touches it
+[main 231e60c] Auto update AI news: 2026-03-08 22:13
+ 20 files changed, 1150 insertions(+), 153 deletions(-)
+ create mode 100644 fix_window_issue.bat
+ create mode 100644 logs/scheduler_20260308_2137.log
+ create mode 100644 logs/scheduler_20260308_2141.log
+ create mode 100644 logs/scheduler_20260308_2146.log
+ create mode 100644 logs/scheduler_20260308_2148.log
+ create mode 100644 logs/scheduler_20260308_2213.log
+ create mode 100644 scheduler_fixed_path.bat
+ create mode 100644 setup_scheduled_task.ps1
+ create mode 100644 test_all_bat_files.bat
+ create mode 100644 test_scheduler.ps1
+ create mode 100644 test_scheduler_simple.ps1
+ create mode 100644 test_simple.bat
+ create mode 100644 test_with_error_handling.bat
+ create mode 100644 "\345\256\232\346\227\266\344\273\273\345\212\241\350\256\276\347\275\256\350\257\264\346\230\216.md"
+[OK] Git commit completed 
+Pushing to GitHub... 
+To github.com:harker1544525153-lang/ai-insights.git
+   1bda8d4..231e60c  main -> main
+[OK] GitHub push completed 
+Cleaning old log files... 
+错误: 用指定的搜索标准没有找到文件。
+======================================== 
+AI News Scheduler Completed Successfully! 
+End time: 2026/03/08 周日 22:13:21.61 
+======================================== 
