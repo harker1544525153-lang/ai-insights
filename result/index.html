@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI简讯 - 2026-03-07</title>
+    <title>AI简讯 - 2026-03-08</title>
     <style>
         * {
             margin: 0;
@@ -301,11 +301,11 @@
     <div class="container">
         <!-- 导航栏 -->
         <div class="navbar">
-            <div class="navbar-title">AI简讯 【2026-03-07】</div>
+            <div class="navbar-title">AI简讯 【2026-03-08】</div>
             <div class="navbar-controls">
                 <select class="history-selector" id="historySelector">
-                    <option value="2026-03-07" selected>查看历史简讯</option>
-                    <option value="2026-03-07">2026-03-07</option>
+                    <option value="2026-03-08" selected>查看历史简讯</option>
+                    <option value="2026-03-08">2026-03-08</option>
                 </select>
                 <button class="share-btn" onclick="shareContent()">分享</button>
             </div>
@@ -442,7 +442,7 @@
         
         <!-- 统计信息 -->
         <div class="stats-section">
-            最近更新：2026-03-07 22:22 | 
+            最近更新：2026-03-08 22:13 | 
             处理数据源：23个 | 
             成功获取：6条简讯
         </div>
@@ -456,7 +456,7 @@
                 .map(title => title.textContent.trim())
                 .join('\n');
             
-            const content = `今日AI简讯（2026-03-07）\n\n${titles}\n\n更多详情请访问：https://harker1544525153-lang.github.io/ai-insights/`;
+            const content = `今日AI简讯（2026-03-08）\n\n${titles}\n\n更多详情请访问：https://harker1544525153-lang.github.io/ai-insights/`;
             
             navigator.clipboard.writeText(content).then(() => {
                 alert('简讯内容已复制到剪贴板！');
@@ -468,7 +468,7 @@
         
         // 历史数据管理
         const historicalData = {
-            '2026-03-07': {
+            '2026-03-08': {
                 insights: [
   {
     "title": "阿里云发布AI大模型推理服务重大升级",
@@ -618,7 +618,7 @@
                     const option = document.createElement('option');
                     option.value = date;
                     option.textContent = date;
-                    if (date === '2026-03-07') {
+                    if (date === '2026-03-08') {
                         option.selected = true;
                     }
                     historySelector.appendChild(option);

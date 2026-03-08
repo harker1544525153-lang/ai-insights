@@ -1,0 +1,29 @@
+======================================== 
+AI News Scheduler Started 
+Start time: 2026/03/08 周日 22:13:14.34 
+Log file: C:\Users\h604658591\Demo2\logs\scheduler_20260308_2213.log 
+======================================== 
+Checking Python environment... 
+Python 3.13.12
+[OK] Python check passed 
+Checking Git environment... 
+git version 2.53.0.windows.1
+[OK] Git check passed 
+Generating latest news... 
+开始生成修复版今日简讯...
+result/index.html生成完成（修复版样式）
+result/index.html已复制到根目录
+Markdown文件生成完成
+数据源统计文件更新完成
+
+修复版今日简讯生成完成！
+统计信息:
+   生成简讯: 6条
+   发布时间范围: 2026年3月4日 - 2026年3月7日
+   生成文件:
+     - result/index.html (修复版样式)
+     - index.html (由result/index.html覆盖)
+     - latest.md
+     - source/resultAI.csv
+[OK] News generation completed 
+Committing changes to Git... 

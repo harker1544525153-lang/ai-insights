@@ -1,0 +1,25 @@
+======================================== 
+AI News Scheduler Started 
+Start time: 2026/03/08 周日 21:37:54.63 
+Log file: C:\Users\h604658591\Demo2\logs\scheduler_20260308_2137.log 
+======================================== 
+Checking Python environment... 
+Python 3.13.12
+[OK] Python check passed 
+Checking Git environment... 
+git version 2.53.0.windows.1
+[OK] Git check passed 
+Generating latest news... 
+Traceback (most recent call last):
+  File "C:\Users\h604658591\Demo2\generate_fixed_news.py", line 690, in <module>
+    generate_fixed_news()
+    ~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\h604658591\Demo2\generate_fixed_news.py", line 17, in generate_fixed_news
+    print("\U0001f680 开始生成修复版今日简讯...")
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'gbk' codec can't encode character '\U0001f680' in position 0: illegal multibyte sequence
+ERROR: News generation failed 
+======================================== 
+AI News Scheduler Failed! 
+Error time: 2026/03/08 周日 21:37:55.08 
+======================================== 

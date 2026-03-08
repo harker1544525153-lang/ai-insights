@@ -14,7 +14,7 @@ import shutil
 def generate_fixed_news():
     """生成修复版今日简讯"""
     
-    print("🚀 开始生成修复版今日简讯...")
+    print("开始生成修复版今日简讯...")
     
     # 当前日期（用于生成时间和导航栏显示）
     today_date = datetime.datetime.now().strftime("%Y-%m-%d")
@@ -90,8 +90,8 @@ def generate_fixed_news():
     # 4. 更新数据源统计文件
     update_resultai_file(today_date, current_time, len(todays_insights))
     
-    print(f"\n🎉 修复版今日简讯生成完成！")
-    print(f"📊 统计信息:")
+    print(f"\n修复版今日简讯生成完成！")
+    print(f"统计信息:")
     print(f"   生成简讯: {len(todays_insights)}条")
     print(f"   发布时间范围: 2026年3月4日 - 2026年3月7日")
     print(f"   生成文件:")
@@ -610,14 +610,14 @@ def generate_fixed_html(insights, today_date, current_time):
     with open('result/index.html', 'w', encoding='utf-8') as f:
         f.write(html_content)
     
-    print("✅ result/index.html生成完成（修复版样式）")
+    print("result/index.html生成完成（修复版样式）")
 
 def copy_result_to_root():
     """复制result/index.html到根目录"""
     
     try:
         shutil.copy2('result/index.html', 'index.html')
-        print("✅ result/index.html已复制到根目录")
+        print("result/index.html已复制到根目录")
     except Exception as e:
         print(f"❌ 复制文件失败: {e}")
 
@@ -658,7 +658,7 @@ def generate_markdown_file(insights, today_date, current_time):
     with open('latest.md', 'w', encoding='utf-8') as f:
         f.write(md_content)
     
-    print("✅ Markdown文件生成完成")
+    print("Markdown文件生成完成")
 
 def update_resultai_file(today_date, current_time, insights_count):
     """更新数据源统计文件"""
@@ -684,7 +684,7 @@ def update_resultai_file(today_date, current_time, insights_count):
         writer.writeheader()
         writer.writerows(rows)
     
-    print("✅ 数据源统计文件更新完成")
+    print("数据源统计文件更新完成")
 
 if __name__ == "__main__":
     generate_fixed_news()
