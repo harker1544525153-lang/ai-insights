@@ -1,0 +1,12 @@
+name,rss_url,home_url,category
+DeepGEO,https://deepgeo.org.cn/rss,https://deepgeo.org.cn,大模型
+AIWW,https://aiww.com/feed,https://aiww.com,大模型
+Gartner,https://www.gartner.com/en/rss,https://www.gartner.com,云计算
+IDC,https://www.idc.com/rss,https://www.idc.com,云计算
+Forrester,https://www.forrester.com/rss,https://www.forrester.com,应用落地
+东方财富网,https://finance.eastmoney.com/rss,https://finance.eastmoney.com,应用落地
+华尔街见闻,https://wallstreetcn.com/rss,https://wallstreetcn.com,应用落地
+亿欧智库,https://www.iyiou.com/rss,https://www.iyiou.com,大模型
+199it,https://www.199it.com/rss,https://www.199it.com,云计算
+SimilarWeb,,https://www.similarweb.com,应用落地
+新榜,,https://www.newrank.cn,应用落地
