@@ -1,4 +1,11 @@
 数据源名称,获取简讯数,获取结果,未选择原因,处理时间
-DeepGEO,0,失败,RSS获取失败: RSS解析失败: <unknown>:7:2: mismatched tag,2026-03-11 22:18:31
-AIWW,0,失败,RSS获取失败: RSS解析失败: text/html; charset=utf-8 is not an XML media type,2026-03-11 22:18:31
-Gartner,0,失败,网站爬取失败: 网站爬取失败: 403 Client Error: Forbidden for url: https://www.gartner.com/,2026-03-11 22:18:31
+TechCrunch AI,5,成功,,2026-03-11 22:32:55
+VentureBeat AI,0,失败,"RSS获取失败: RSS解析失败: document declared as us-ascii, but parsed as utf-8",2026-03-11 22:32:55
+MIT Technology Review AI,5,成功,,2026-03-11 22:32:55
+AI News,5,成功,,2026-03-11 22:32:55
+Analytics India Magazine,0,失败,RSS获取失败: RSS解析失败: <unknown>:2:0: syntax error,2026-03-11 22:32:55
+Towards Data Science,5,成功,,2026-03-11 22:32:55
+AI Trends,5,成功,,2026-03-11 22:32:55
+KDnuggets,5,成功,,2026-03-11 22:32:55
+OpenAI Blog,0,失败,网站爬取失败: 网站爬取失败: 403 Client Error: Forbidden for url: https://openai.com/blog,2026-03-11 22:32:55
+Google AI Blog,0,失败,无可用数据源,2026-03-11 22:32:55

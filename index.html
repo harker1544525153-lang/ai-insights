@@ -5,121 +5,531 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI简讯 - 2026年03月11日</title>
     <style>
-        body {
-            font-family: 'Microsoft YaHei', Arial, sans-serif;
+        * {
             margin: 0;
-            padding: 20px;
-            background-color: #f5f5f5;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.4;
+            background: #f8f9fa;
             color: #333;
         }
+        
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
-        .header {
-            text-align: center;
-            margin-bottom: 30px;
-            border-bottom: 2px solid #007acc;
-            padding-bottom: 20px;
-        }
-        .header h1 {
-            color: #007acc;
-            margin-bottom: 10px;
-        }
-        .news-item {
-            margin-bottom: 20px;
             padding: 15px;
-            border-left: 3px solid #007acc;
+        }
+        
+        /* 导航栏 */
+        .navbar {
+            background: white;
+            padding: 12px 20px;
+            border-bottom: 1px solid #e9ecef;
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .nav-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #495057;
+        }
+        
+        .nav-controls {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .nav-controls select {
+            padding: 6px 10px;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+            font-size: 0.9rem;
             background: #f8f9fa;
         }
-        .news-title {
-            font-size: 1.2em;
-            font-weight: bold;
-            color: #007acc;
-            margin-bottom: 10px;
+        
+        .share-btn {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.85rem;
         }
-        .news-meta {
-            font-size: 0.9em;
-            color: #666;
-            margin-bottom: 10px;
+        
+        .share-btn:hover {
+            background: #0056b3;
         }
-        .news-summary {
-            margin-bottom: 10px;
-            line-height: 1.6;
+        
+        /* 今日简讯预览 */
+        .preview-section {
+            background: white;
+            padding: 12px 15px;
+            border-radius: 6px;
+            margin-bottom: 15px;
+            border: 1px solid #e9ecef;
         }
-        .news-comment {
+        
+        .preview-section h3 {
+            font-size: 1rem;
+            margin-bottom: 10px;
+            color: #495057;
+            border-bottom: 1px solid #f8f9fa;
+            padding-bottom: 6px;
+        }
+        
+        .preview-list {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+        
+        .preview-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 4px 0;
+        }
+        
+        .preview-num {
+            background: #6c757d;
+            color: white;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            font-weight: 500;
+        }
+        
+        .preview-title {
+            font-size: 0.85rem;
+            color: #495057;
+            line-height: 1.3;
+        }
+        
+        /* 简讯列表 */
+        .insights-section {
+            background: white;
+            border-radius: 6px;
+            border: 1px solid #e9ecef;
+        }
+        
+        .insight-item {
+            padding: 15px;
+            border-bottom: 1px solid #f8f9fa;
+            transition: background 0.2s;
+        }
+        
+        .insight-item:hover {
+            background: #f8f9fa;
+        }
+        
+        .insight-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+        
+        .insight-num {
+            width: 30px;
+            font-weight: 600;
+            color: #495057;
+            font-size: 0.9rem;
+        }
+        
+        .insight-title {
+            flex: 1;
+            font-weight: 600;
+            color: #495057;
+            font-size: 1rem;
+            margin-right: 10px;
+        }
+        
+        .insight-category {
+            background: #e9ecef;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            color: #6c757d;
+            margin-right: 10px;
+        }
+        
+        .insight-source {
+            font-size: 0.8rem;
+            color: #6c757d;
+            margin-right: 15px;
+        }
+        
+        .read-more {
+            font-size: 0.8rem;
+            color: #007bff;
+            text-decoration: none;
+        }
+        
+        .read-more:hover {
+            text-decoration: underline;
+        }
+        
+        .insight-content {
+            margin-left: 30px;
+        }
+        
+        .insight-summary {
+            margin-bottom: 8px;
+            line-height: 1.5;
+            font-size: 0.9rem;
+            color: #495057;
+        }
+        
+        .insight-comment {
             font-style: italic;
-            color: #555;
-            border-top: 1px solid #ddd;
-            padding-top: 10px;
+            color: #6c757d;
+            font-size: 0.85rem;
+            border-top: 1px solid #f8f9fa;
+            padding-top: 8px;
         }
+        
         .footer {
             text-align: center;
-            margin-top: 30px;
-            color: #666;
-            font-size: 0.9em;
+            margin-top: 20px;
+            color: #6c757d;
+            font-size: 0.8rem;
+            padding: 15px;
         }
+        
         .error-message {
             background: #fff3cd;
             border: 1px solid #ffeaa7;
             padding: 15px;
             border-radius: 5px;
             margin-bottom: 20px;
+            color: #856404;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="header">
-            <h1>AI简讯 · 2026年03月11日</h1>
-            <p>最新AI行业动态，每日更新</p>
+        <!-- 导航栏 -->
+        <div class="navbar">
+            <div class="nav-title">AI简讯·2026年03月11日</div>
+            <div class="nav-controls">
+                <select>
+                    <option>所有分类</option>
+                    <option>大模型</option>
+                    <option>云计算</option>
+                    <option>应用落地</option>
+                </select>
+                <button class="share-btn" onclick="shareContent()">分享</button>
+            </div>
         </div>
         
-        <div class="error-message">
-            <strong>⚠️ 数据源访问说明：</strong>
-            <p>由于当前网络环境限制，部分数据源无法正常访问。系统已成功生成自动化框架，待网络环境恢复后将自动获取最新AI简讯。</p>
-        </div>
-        
-        <div class="news-list">
-            <div class="news-item">
-                <div class="news-title">1. AI简讯自动化系统已部署完成</div>
-                <div class="news-meta">
-                    来源: 系统生成 | 分类: 系统状态 | 
-                    <a href="#" target="_blank">阅读原文</a>
+        <!-- 今日简讯预览 -->
+        <div class="preview-section">
+            <h3>今日简讯预览</h3>
+            <div class="preview-list">
+
+                <div class="preview-item">
+                    <div class="preview-num">1</div>
+                    <div class="preview-title">1. Canopii looks to succeed where past indoor farm...</div>
                 </div>
-                <div class="news-summary">AI简讯自动化系统已完成部署，支持从多个数据源自动获取AI行业最新动态。系统具备智能内容提炼功能，能够自动生成标题、摘要和专业点评。</div>
-                <div class="news-comment">点评: 从技术架构角度看，该系统实现了数据源管理、内容获取、智能处理和自动化发布的完整流程，为AI行业信息获取提供了高效解决方案。</div>
+            
+                <div class="preview-item">
+                    <div class="preview-num">2</div>
+                    <div class="preview-title">2. Google brings Gemini in Chrome to India</div>
+                </div>
+            
+                <div class="preview-item">
+                    <div class="preview-num">3</div>
+                    <div class="preview-title">3. Hustlers are cashing in on China’s OpenClaw AI ...</div>
+                </div>
+            
+                <div class="preview-item">
+                    <div class="preview-num">4</div>
+                    <div class="preview-title">4. How Pokémon Go is giving delivery robots an inc...</div>
+                </div>
+            
+                <div class="preview-item">
+                    <div class="preview-num">5</div>
+                    <div class="preview-title">5. New partnership to offer smart robots for dange...</div>
+                </div>
+            
+                <div class="preview-item">
+                    <div class="preview-num">6</div>
+                    <div class="preview-title">6. Manulife moves AI agents into core financial wo...</div>
+                </div>
+            
+                <div class="preview-item">
+                    <div class="preview-num">7</div>
+                    <div class="preview-title">7. Why Most A/B Tests Are Lying to You</div>
+                </div>
+            
+                <div class="preview-item">
+                    <div class="preview-num">8</div>
+                    <div class="preview-title">8. How the Fourier Transform Converts Sound Into F...</div>
+                </div>
+            
+                <div class="preview-item">
+                    <div class="preview-num">9</div>
+                    <div class="preview-title">9. Best Practices for Building the AI Development ...</div>
+                </div>
+            
+                <div class="preview-item">
+                    <div class="preview-num">10</div>
+                    <div class="preview-title">10. Advance Trustworthy AI and ML, and Identify Bes...</div>
+                </div>
+            
+                <div class="preview-item">
+                    <div class="preview-num">11</div>
+                    <div class="preview-title">11. Run a Real Time Speech to Speech AI Model Locally</div>
+                </div>
+            
+                <div class="preview-item">
+                    <div class="preview-num">12</div>
+                    <div class="preview-title">12. 5 Free AI Tools to Understand Code and Generate...</div>
+                </div>
+            
+            </div>
+        </div>
+        
+        <!-- 简讯列表 -->
+        <div class="insights-section">
+
+            <div class="insight-item">
+                <div class="insight-header">
+                    <div class="insight-num">1</div>
+                    <div class="insight-title">Canopii looks to succeed where past indoor farm...</div>
+                    <div class="insight-category">大模型</div>
+                    <div class="insight-source">TechCrunch AI</div>
+                    <a href="https://techcrunch.com/2026/03/11/canopii-looks-to-succeed-where-past-indoor-farms-have-not/" target="_blank" class="read-more">阅读原文</a>
+                </div>
+                <div class="insight-content">
+                    <div class="insight-summary">Canopii looks to succeed where past indoor farm...。该新闻涉及人工智能领域的最新发展动态。</div>
+                    <div class="insight-comment">点评: 从技术发展角度看，该事件反映了AI大模型领域的最新进展。</div>
+                </div>
             </div>
             
-            <div class="news-item">
-                <div class="news-title">2. 系统支持RSS和网站爬取双模式</div>
-                <div class="news-meta">
-                    来源: 系统生成 | 分类: 技术特性 | 
-                    <a href="#" target="_blank">阅读原文</a>
+            <div class="insight-item">
+                <div class="insight-header">
+                    <div class="insight-num">2</div>
+                    <div class="insight-title">Google brings Gemini in Chrome to India</div>
+                    <div class="insight-category">大模型</div>
+                    <div class="insight-source">TechCrunch AI</div>
+                    <a href="https://techcrunch.com/2026/03/10/google-gemini-chrome-expands-to-india-canada-new-zealand/" target="_blank" class="read-more">阅读原文</a>
                 </div>
-                <div class="news-summary">系统采用RSS订阅优先、网站爬取备用的双模式数据获取策略，确保信息获取的可靠性和完整性。支持从DeepGEO、AIWW、Gartner等权威平台获取最新AI资讯。</div>
-                <div class="news-comment">点评: 从技术实现角度分析，双模式获取机制提高了系统的容错能力，在RSS订阅不可用时能够通过网站爬取保障信息获取的连续性。</div>
+                <div class="insight-content">
+                    <div class="insight-summary">Google brings Gemini in Chrome to India。该新闻涉及人工智能领域的最新发展动态。</div>
+                    <div class="insight-comment">点评: 从技术发展角度看，该事件反映了AI大模型领域的最新进展。</div>
+                </div>
             </div>
             
-            <div class="news-item">
-                <div class="news-title">3. 智能内容提炼功能已就绪</div>
-                <div class="news-meta">
-                    来源: 系统生成 | 分类: 内容处理 | 
-                    <a href="#" target="_blank">阅读原文</a>
+            <div class="insight-item">
+                <div class="insight-header">
+                    <div class="insight-num">3</div>
+                    <div class="insight-title">Hustlers are cashing in on China’s OpenClaw AI ...</div>
+                    <div class="insight-category">云计算</div>
+                    <div class="insight-source">MIT Technology Review AI</div>
+                    <a href="https://www.technologyreview.com/2026/03/11/1134179/china-openclaw-gold-rush/" target="_blank" class="read-more">阅读原文</a>
                 </div>
-                <div class="news-summary">系统具备智能内容提炼功能，能够自动去除标题党词汇，生成200-300字的客观摘要，并提供2-3句专业点评。内容处理遵循AI行业专业标准。</div>
-                <div class="news-comment">点评: 从内容质量评估，智能提炼功能确保了简讯内容的专业性和可读性，为AI行业从业者提供了有价值的信息参考。</div>
+                <div class="insight-content">
+                    <div class="insight-summary">Hustlers are cashing in on China’s OpenClaw AI ...。该新闻涉及人工智能领域的最新发展动态。</div>
+                    <div class="insight-comment">点评: 从云服务市场格局分析，该事件对云计算行业有重要影响。</div>
+                </div>
             </div>
+            
+            <div class="insight-item">
+                <div class="insight-header">
+                    <div class="insight-num">4</div>
+                    <div class="insight-title">How Pokémon Go is giving delivery robots an inc...</div>
+                    <div class="insight-category">云计算</div>
+                    <div class="insight-source">MIT Technology Review AI</div>
+                    <a href="https://www.technologyreview.com/2026/03/10/1134099/how-pokemon-go-is-helping-robots-deliver-pizza-on-time/" target="_blank" class="read-more">阅读原文</a>
+                </div>
+                <div class="insight-content">
+                    <div class="insight-summary">How Pokémon Go is giving delivery robots an inc...。该新闻涉及人工智能领域的最新发展动态。</div>
+                    <div class="insight-comment">点评: 从云服务市场格局分析，该事件对云计算行业有重要影响。</div>
+                </div>
+            </div>
+            
+            <div class="insight-item">
+                <div class="insight-header">
+                    <div class="insight-num">5</div>
+                    <div class="insight-title">New partnership to offer smart robots for dange...</div>
+                    <div class="insight-category">应用落地</div>
+                    <div class="insight-source">AI News</div>
+                    <a href="https://www.artificialintelligence-news.com/news/new-partnership-to-offer-ai-for-robotics-for-work-in-dangerous-environments/" target="_blank" class="read-more">阅读原文</a>
+                </div>
+                <div class="insight-content">
+                    <div class="insight-summary">New partnership to offer smart robots for dange...。该新闻涉及人工智能领域的最新发展动态。</div>
+                    <div class="insight-comment">点评: 从商业应用价值评估，该事件在技术商业化进程中具有重要意义。</div>
+                </div>
+            </div>
+            
+            <div class="insight-item">
+                <div class="insight-header">
+                    <div class="insight-num">6</div>
+                    <div class="insight-title">Manulife moves AI agents into core financial wo...</div>
+                    <div class="insight-category">应用落地</div>
+                    <div class="insight-source">AI News</div>
+                    <a href="https://www.artificialintelligence-news.com/news/manulife-moves-ai-agents-into-core-financial-workflows/" target="_blank" class="read-more">阅读原文</a>
+                </div>
+                <div class="insight-content">
+                    <div class="insight-summary">Manulife moves AI agents into core financial wo...。该新闻涉及人工智能领域的最新发展动态。</div>
+                    <div class="insight-comment">点评: 从商业应用价值评估，该事件在技术商业化进程中具有重要意义。</div>
+                </div>
+            </div>
+            
+            <div class="insight-item">
+                <div class="insight-header">
+                    <div class="insight-num">7</div>
+                    <div class="insight-title">Why Most A/B Tests Are Lying to You</div>
+                    <div class="insight-category">大模型</div>
+                    <div class="insight-source">Towards Data Science</div>
+                    <a href="https://towardsdatascience.com/why-most-a-b-tests-are-lying-to-you/" target="_blank" class="read-more">阅读原文</a>
+                </div>
+                <div class="insight-content">
+                    <div class="insight-summary">Why Most A/B Tests Are Lying to You。该新闻涉及人工智能领域的最新发展动态。</div>
+                    <div class="insight-comment">点评: 从技术发展角度看，该事件反映了AI大模型领域的最新进展。</div>
+                </div>
+            </div>
+            
+            <div class="insight-item">
+                <div class="insight-header">
+                    <div class="insight-num">8</div>
+                    <div class="insight-title">How the Fourier Transform Converts Sound Into F...</div>
+                    <div class="insight-category">大模型</div>
+                    <div class="insight-source">Towards Data Science</div>
+                    <a href="https://towardsdatascience.com/everything-you-need-to-know-about-fourier-transform/" target="_blank" class="read-more">阅读原文</a>
+                </div>
+                <div class="insight-content">
+                    <div class="insight-summary">How the Fourier Transform Converts Sound Into F...。该新闻涉及人工智能领域的最新发展动态。</div>
+                    <div class="insight-comment">点评: 从技术发展角度看，该事件反映了AI大模型领域的最新进展。</div>
+                </div>
+            </div>
+            
+            <div class="insight-item">
+                <div class="insight-header">
+                    <div class="insight-num">9</div>
+                    <div class="insight-title">Best Practices for Building the AI Development ...</div>
+                    <div class="insight-category">云计算</div>
+                    <div class="insight-source">AI Trends</div>
+                    <a href="https://www.aitrends.com/ai-world-government/best-practices-for-building-the-ai-development-platform-in-government/" target="_blank" class="read-more">阅读原文</a>
+                </div>
+                <div class="insight-content">
+                    <div class="insight-summary">Best Practices for Building the AI Development ...。该新闻涉及人工智能领域的最新发展动态。</div>
+                    <div class="insight-comment">点评: 从云服务市场格局分析，该事件对云计算行业有重要影响。</div>
+                </div>
+            </div>
+            
+            <div class="insight-item">
+                <div class="insight-header">
+                    <div class="insight-num">10</div>
+                    <div class="insight-title">Advance Trustworthy AI and ML, and Identify Bes...</div>
+                    <div class="insight-category">云计算</div>
+                    <div class="insight-source">AI Trends</div>
+                    <a href="https://www.aitrends.com/ai-world-government/advance-trustworthy-ai-and-ml-and-identify-best-practices-for-scaling-ai/" target="_blank" class="read-more">阅读原文</a>
+                </div>
+                <div class="insight-content">
+                    <div class="insight-summary">Advance Trustworthy AI and ML, and Identify Bes...。该新闻涉及人工智能领域的最新发展动态。</div>
+                    <div class="insight-comment">点评: 从云服务市场格局分析，该事件对云计算行业有重要影响。</div>
+                </div>
+            </div>
+            
+            <div class="insight-item">
+                <div class="insight-header">
+                    <div class="insight-num">11</div>
+                    <div class="insight-title">Run a Real Time Speech to Speech AI Model Locally</div>
+                    <div class="insight-category">应用落地</div>
+                    <div class="insight-source">KDnuggets</div>
+                    <a href="https://www.kdnuggets.com/run-a-real-time-speech-to-speech-ai-model-locally" target="_blank" class="read-more">阅读原文</a>
+                </div>
+                <div class="insight-content">
+                    <div class="insight-summary">Run a Real Time Speech to Speech AI Model Locally。该新闻涉及人工智能领域的最新发展动态。</div>
+                    <div class="insight-comment">点评: 从商业应用价值评估，该事件在技术商业化进程中具有重要意义。</div>
+                </div>
+            </div>
+            
+            <div class="insight-item">
+                <div class="insight-header">
+                    <div class="insight-num">12</div>
+                    <div class="insight-title">5 Free AI Tools to Understand Code and Generate...</div>
+                    <div class="insight-category">应用落地</div>
+                    <div class="insight-source">KDnuggets</div>
+                    <a href="https://www.kdnuggets.com/5-free-ai-tools-to-understand-code-and-generate-documentation" target="_blank" class="read-more">阅读原文</a>
+                </div>
+                <div class="insight-content">
+                    <div class="insight-summary">5 Free AI Tools to Understand Code and Generate...。该新闻涉及人工智能领域的最新发展动态。</div>
+                    <div class="insight-comment">点评: 从商业应用价值评估，该事件在技术商业化进程中具有重要意义。</div>
+                </div>
+            </div>
+            
         </div>
         
+        <!-- 页脚 -->
         <div class="footer">
-            <p>最近更新: 2026-03-11 22:20</p>
-            <p>AI简讯自动化系统 v2.0 | 系统状态: 框架就绪，待网络恢复</p>
+            <p>最近更新: 2026-03-11 22:32</p>
+            <p>AI简讯自动化系统 v2.0 | 优化版样式</p>
         </div>
+        
+        <script>
+            function shareContent() {
+                const title = "AI简讯 · 2026年03月11日";
+                const url = "https://harker1544525153-lang.github.io/ai-insights/";
+                const text = "今日AI行业最新动态，涵盖大模型、云计算、应用落地等领域。";
+                
+                if (navigator.share) {
+                    navigator.share({
+                        title: title,
+                        text: text,
+                        url: url
+                    }).then(() => {
+                        console.log('分享成功');
+                    }).catch(error => {
+                        console.log('分享失败:', error);
+                    });
+                } else {
+                    // 备用分享方式
+                    const shareText = title + "\n" + text + "\n" + url;
+                    if (navigator.clipboard) {
+                        navigator.clipboard.writeText(shareText).then(() => {
+                            alert('内容已复制到剪贴板，请手动分享');
+                        });
+                    } else {
+                        alert('请手动复制以下内容进行分享：\n\n' + shareText);
+                    }
+                }
+            }
+            
+            // 分类筛选功能
+            document.addEventListener('DOMContentLoaded', function() {
+                const categorySelect = document.querySelector('.nav-controls select');
+                if (categorySelect) {
+                    categorySelect.addEventListener('change', function() {
+                        const selectedCategory = this.value;
+                        const insightItems = document.querySelectorAll('.insight-item');
+                        
+                        insightItems.forEach(item => {
+                            const category = item.querySelector('.insight-category').textContent;
+                            if (selectedCategory === '所有分类' || category === selectedCategory) {
+                                item.style.display = 'block';
+                            } else {
+                                item.style.display = 'none';
+                            }
+                        });
+                    });
+                }
+            });
+        </script>
     </div>
 </body>
 </html>

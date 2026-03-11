@@ -1,4 +1,11 @@
 name,rss_url,home_url,category
-DeepGEO,https://deepgeo.org.cn/rss,https://deepgeo.org.cn,大模型
-AIWW,https://aiww.com/feed,https://aiww.com,大模型
-Gartner,https://www.gartner.com/en/rss,https://www.gartner.com,云计算
+TechCrunch AI,https://techcrunch.com/category/artificial-intelligence/feed/,https://techcrunch.com/category/artificial-intelligence/,大模型
+VentureBeat AI,https://venturebeat.com/category/ai/feed/,https://venturebeat.com/category/ai/,大模型
+MIT Technology Review AI,https://www.technologyreview.com/topic/artificial-intelligence/feed/,https://www.technologyreview.com/topic/artificial-intelligence/,云计算
+AI News,https://artificialintelligence-news.com/feed/,https://artificialintelligence-news.com/,应用落地
+Analytics India Magazine,https://analyticsindiamag.com/feed/,https://analyticsindiamag.com/,应用落地
+Towards Data Science,https://towardsdatascience.com/feed,https://towardsdatascience.com/,大模型
+AI Trends,https://www.aitrends.com/feed/,https://www.aitrends.com/,云计算
+KDnuggets,https://www.kdnuggets.com/feed,https://www.kdnuggets.com/,应用落地
+OpenAI Blog,,https://openai.com/blog,大模型
+Google AI Blog,,https://ai.googleblog.com,云计算

@@ -281,9 +281,12 @@ class SimpleAINewsSystem:
         print(f"✅ 结果已保存到: {self.results_file}")
     
     def generate_html(self, all_news):
-        """生成HTML文件"""
+        """生成HTML文件 - 优化版样式"""
         today_date = datetime.now().strftime('%Y年%m月%d日')
         current_time = datetime.now().strftime('%Y-%m-%d %H:%M')
+        
+        # 获取标题列表用于预览
+        title_list = [f"{i}. {news['title']}" for i, news in enumerate(all_news, 1)]
         
         html_content = f'''<!DOCTYPE html>
 <html lang="zh-CN">
@@ -292,98 +295,335 @@ class SimpleAINewsSystem:
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI简讯 - {today_date}</title>
     <style>
-        body {{
-            font-family: 'Microsoft YaHei', Arial, sans-serif;
+        * {{
             margin: 0;
-            padding: 20px;
-            background-color: #f5f5f5;
+            padding: 0;
+            box-sizing: border-box;
+        }}
+        
+        body {{
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.4;
+            background: #f8f9fa;
             color: #333;
         }}
+        
         .container {{
             max-width: 1200px;
             margin: 0 auto;
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }}
-        .header {{
-            text-align: center;
-            margin-bottom: 30px;
-            border-bottom: 2px solid #007acc;
-            padding-bottom: 20px;
-        }}
-        .header h1 {{
-            color: #007acc;
-            margin-bottom: 10px;
-        }}
-        .news-item {{
-            margin-bottom: 20px;
             padding: 15px;
-            border-left: 3px solid #007acc;
+        }}
+        
+        /* 导航栏 */
+        .navbar {{
+            background: white;
+            padding: 12px 20px;
+            border-bottom: 1px solid #e9ecef;
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }}
+        
+        .nav-title {{
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #495057;
+        }}
+        
+        .nav-controls {{
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }}
+        
+        .nav-controls select {{
+            padding: 6px 10px;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+            font-size: 0.9rem;
             background: #f8f9fa;
         }}
-        .news-title {{
-            font-size: 1.2em;
-            font-weight: bold;
-            color: #007acc;
-            margin-bottom: 10px;
+        
+        .share-btn {{
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.85rem;
         }}
-        .news-meta {{
-            font-size: 0.9em;
-            color: #666;
-            margin-bottom: 10px;
+        
+        .share-btn:hover {{
+            background: #0056b3;
         }}
-        .news-summary {{
-            margin-bottom: 10px;
-            line-height: 1.6;
+        
+        /* 今日简讯预览 */
+        .preview-section {{
+            background: white;
+            padding: 12px 15px;
+            border-radius: 6px;
+            margin-bottom: 15px;
+            border: 1px solid #e9ecef;
         }}
-        .news-comment {{
+        
+        .preview-section h3 {{
+            font-size: 1rem;
+            margin-bottom: 10px;
+            color: #495057;
+            border-bottom: 1px solid #f8f9fa;
+            padding-bottom: 6px;
+        }}
+        
+        .preview-list {{
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }}
+        
+        .preview-item {{
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 4px 0;
+        }}
+        
+        .preview-num {{
+            background: #6c757d;
+            color: white;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            font-weight: 500;
+        }}
+        
+        .preview-title {{
+            font-size: 0.85rem;
+            color: #495057;
+            line-height: 1.3;
+        }}
+        
+        /* 简讯列表 */
+        .insights-section {{
+            background: white;
+            border-radius: 6px;
+            border: 1px solid #e9ecef;
+        }}
+        
+        .insight-item {{
+            padding: 15px;
+            border-bottom: 1px solid #f8f9fa;
+            transition: background 0.2s;
+        }}
+        
+        .insight-item:hover {{
+            background: #f8f9fa;
+        }}
+        
+        .insight-header {{
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+        }}
+        
+        .insight-num {{
+            width: 30px;
+            font-weight: 600;
+            color: #495057;
+            font-size: 0.9rem;
+        }}
+        
+        .insight-title {{
+            flex: 1;
+            font-weight: 600;
+            color: #495057;
+            font-size: 1rem;
+            margin-right: 10px;
+        }}
+        
+        .insight-category {{
+            background: #e9ecef;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            color: #6c757d;
+            margin-right: 10px;
+        }}
+        
+        .insight-source {{
+            font-size: 0.8rem;
+            color: #6c757d;
+            margin-right: 15px;
+        }}
+        
+        .read-more {{
+            font-size: 0.8rem;
+            color: #007bff;
+            text-decoration: none;
+        }}
+        
+        .read-more:hover {{
+            text-decoration: underline;
+        }}
+        
+        .insight-content {{
+            margin-left: 30px;
+        }}
+        
+        .insight-summary {{
+            margin-bottom: 8px;
+            line-height: 1.5;
+            font-size: 0.9rem;
+            color: #495057;
+        }}
+        
+        .insight-comment {{
             font-style: italic;
-            color: #555;
-            border-top: 1px solid #ddd;
-            padding-top: 10px;
+            color: #6c757d;
+            font-size: 0.85rem;
+            border-top: 1px solid #f8f9fa;
+            padding-top: 8px;
         }}
+        
         .footer {{
             text-align: center;
-            margin-top: 30px;
-            color: #666;
-            font-size: 0.9em;
+            margin-top: 20px;
+            color: #6c757d;
+            font-size: 0.8rem;
+            padding: 15px;
+        }}
+        
+        .error-message {{
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            color: #856404;
         }}
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="header">
-            <h1>AI简讯 · {today_date}</h1>
-            <p>最新AI行业动态，每日更新</p>
+        <!-- 导航栏 -->
+        <div class="navbar">
+            <div class="nav-title">AI简讯·{today_date}</div>
+            <div class="nav-controls">
+                <select>
+                    <option>所有分类</option>
+                    <option>大模型</option>
+                    <option>云计算</option>
+                    <option>应用落地</option>
+                </select>
+                <button class="share-btn" onclick="shareContent()">分享</button>
+            </div>
         </div>
         
-        <div class="news-list">
+        <!-- 今日简讯预览 -->
+        <div class="preview-section">
+            <h3>今日简讯预览</h3>
+            <div class="preview-list">
 '''
         
-        # 添加新闻项
+        # 添加预览列表
+        for i, title in enumerate(title_list, 1):
+            html_content += f'''
+                <div class="preview-item">
+                    <div class="preview-num">{i}</div>
+                    <div class="preview-title">{title}</div>
+                </div>
+            '''
+        
+        html_content += '''
+            </div>
+        </div>
+        
+        <!-- 简讯列表 -->
+        <div class="insights-section">
+'''
+        
+        # 添加简讯项
         for i, news in enumerate(all_news, 1):
             html_content += f'''
-            <div class="news-item">
-                <div class="news-title">{i}. {news['title']}</div>
-                <div class="news-meta">
-                    来源: {news['source']} | 分类: {news['category']} | 
-                    <a href="{news['link']}" target="_blank">阅读原文</a>
+            <div class="insight-item">
+                <div class="insight-header">
+                    <div class="insight-num">{i}</div>
+                    <div class="insight-title">{news['title']}</div>
+                    <div class="insight-category">{news['category']}</div>
+                    <div class="insight-source">{news['source']}</div>
+                    <a href="{news['link']}" target="_blank" class="read-more">阅读原文</a>
                 </div>
-                <div class="news-summary">{news['summary']}</div>
-                <div class="news-comment">点评: {news['comment']}</div>
+                <div class="insight-content">
+                    <div class="insight-summary">{news['summary']}</div>
+                    <div class="insight-comment">点评: {news['comment']}</div>
+                </div>
             </div>
             '''
         
-        # 添加页脚
+        # 添加JavaScript分享功能
         html_content += f'''
         </div>
         
+        <!-- 页脚 -->
         <div class="footer">
             <p>最近更新: {current_time}</p>
-            <p>AI简讯自动化系统 v2.0</p>
+            <p>AI简讯自动化系统 v2.0 | 优化版样式</p>
         </div>
+        
+        <script>
+            function shareContent() {{
+                const title = "AI简讯 · {today_date}";
+                const url = "https://harker1544525153-lang.github.io/ai-insights/";
+                const text = "今日AI行业最新动态，涵盖大模型、云计算、应用落地等领域。";
+                
+                if (navigator.share) {{
+                    navigator.share({{
+                        title: title,
+                        text: text,
+                        url: url
+                    }}).then(() => {{
+                        console.log('分享成功');
+                    }}).catch(error => {{
+                        console.log('分享失败:', error);
+                    }});
+                }} else {{
+                    // 备用分享方式
+                    const shareText = title + "\\n" + text + "\\n" + url;
+                    if (navigator.clipboard) {{
+                        navigator.clipboard.writeText(shareText).then(() => {{
+                            alert('内容已复制到剪贴板，请手动分享');
+                        }});
+                    }} else {{
+                        alert('请手动复制以下内容进行分享：\\n\\n' + shareText);
+                    }}
+                }}
+            }}
+            
+            // 分类筛选功能
+            document.addEventListener('DOMContentLoaded', function() {{
+                const categorySelect = document.querySelector('.nav-controls select');
+                if (categorySelect) {{
+                    categorySelect.addEventListener('change', function() {{
+                        const selectedCategory = this.value;
+                        const insightItems = document.querySelectorAll('.insight-item');
+                        
+                        insightItems.forEach(item => {{
+                            const category = item.querySelector('.insight-category').textContent;
+                            if (selectedCategory === '所有分类' || category === selectedCategory) {{
+                                item.style.display = 'block';
+                            }} else {{
+                                item.style.display = 'none';
+                            }}
+                        }});
+                    }});
+                }}
+            }});
+        </script>
     </div>
 </body>
 </html>
